@@ -1,5 +1,6 @@
 package com.iub.summitpower;
 
+import com.iub.summitpower.core.Setup;
 import com.iub.summitpower.features.unlogged.splash.SplashController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -17,6 +18,9 @@ public class Main extends Application {
     }
 
     public static void main(String[] args) {
+        Setup setup = new Setup();
+        setup.injectDependencies();
+        setup.createDefaultUsers();
         launch();
     }
 }
