@@ -1,0 +1,14 @@
+package com.iub.summitpower.core.enums;
+
+public enum UserType {
+    SENIOR_EXECUTIVE,
+    HR_EXECUTIVE,
+    SALES_EXECUTIVE,
+    BUSINESS_ANALYST,
+    PROJECT_MANAGER,
+    ENGINEER,
+    QUALITY_ASSURANCE_TESTER,
+    MAINTENANCE_ENGINEER,
+    CUSTOMER_AGENT,
+    CUSTOMER_SUPPORT_AGENT
+}
