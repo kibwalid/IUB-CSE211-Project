@@ -1,9 +1,9 @@
-package com.iub.summitpower;
+package com.iub.summitpower.features.unlogged.splash;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
-public class HelloController {
+public class SplashController {
     @FXML
     private Label welcomeText;
 
