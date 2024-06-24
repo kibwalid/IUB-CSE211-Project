@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.iub.summitpower.features.unlogged.login.LoginController">
+
+
+    <VBox alignment="CENTER" spacing="10" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+        <HBox />
+    </VBox>
+      <VBox alignment="CENTER" layoutX="459.0" layoutY="251.0" prefHeight="218.0" prefWidth="362.0" spacing="10">
+          <TextField fx:id="usernameField" promptText="Username" />
+          <PasswordField fx:id="passwordField" promptText="Password" />
+          <Button text="Login" />
+      </VBox>
+
+</AnchorPane>

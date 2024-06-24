@@ -12,5 +12,6 @@ module com.iub.summitpower {
     opens com.iub.summitpower to javafx.fxml;
     exports com.iub.summitpower;
     exports com.iub.summitpower.features.unlogged.splash;
+    exports com.iub.summitpower.features.unlogged.login;
     opens com.iub.summitpower.features.unlogged.splash to javafx.fxml;
 }
