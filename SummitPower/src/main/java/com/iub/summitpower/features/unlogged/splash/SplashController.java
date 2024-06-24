@@ -1,14 +1,22 @@
 package com.iub.summitpower.features.unlogged.splash;
 
+import com.iub.summitpower.core.setup.Screens;
+import com.iub.summitpower.helpers.NavigationHelper;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
+import javafx.scene.layout.HBox;
 
-public class SplashController {
-    @FXML
-    private Label welcomeText;
+public class SplashController extends NavigationHelper {
 
     @FXML
-    protected void onHelloButtonClick() {
-        welcomeText.setText("Welcome to JavaFX Application!");
+    private HBox loginBox;
+
+
+    @FXML
+    public void initialize() {
+        loginBox.setOnMouseClicked(event -> handleLoginBoxClick());
+    }
+
+    private void handleLoginBoxClick() {
+        navigateToPage(loginBox, Screens.loginScreen);
     }
 }

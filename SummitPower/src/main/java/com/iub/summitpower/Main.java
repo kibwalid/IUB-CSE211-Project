@@ -1,12 +1,14 @@
 package com.iub.summitpower;
 
-import com.iub.summitpower.core.Setup;
+import com.iub.summitpower.core.setup.Setup;
 import com.iub.summitpower.features.unlogged.splash.SplashController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+
+import java.io.IOException;
 
 public class Main extends Application {
     @Override
@@ -19,7 +21,7 @@ public class Main extends Application {
         stage.show();
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         Setup setup = new Setup();
         setup.injectDependencies();
         setup.createDefaultUsers();
