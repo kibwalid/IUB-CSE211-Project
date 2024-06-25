@@ -1,18 +1,18 @@
 package com.iub.summitpower.helpers;
 
 import com.iub.summitpower.core.models.database.BaseEntity;
-import config.Constants;
+import com.iub.summitpower.config.Constants;
 
 import java.io.*;
 import java.util.HashMap;
 import java.util.Map;
 
-abstract class DatabaseHelper<K, V extends BaseEntity> {
+public abstract class DatabaseHelper<K, V extends BaseEntity> {
 
     private String databaseFileName = ".txt";
     private File databaseFile;
 
-    DatabaseHelper(String databaseName) {
+    protected DatabaseHelper(String databaseName) {
         this.databaseFileName = databaseName + this.databaseFileName;
         this.databaseFile = new File(Constants.DATABASE_DIRECTORY_PATH, this.databaseFileName);
         if (!databaseExists()) {
@@ -34,7 +34,12 @@ abstract class DatabaseHelper<K, V extends BaseEntity> {
         if (!directory.exists()) {
             if(directory.mkdirs()) {
                 try {
-                    return databaseFile.createNewFile();
+                    if(databaseFile.createNewFile()) {
+                        ObjectOutputStream stream = new ObjectOutputStream(new FileOutputStream(Constants.DATABASE_DIRECTORY_PATH + "/" + databaseFileName));
+                        HashMap<K, V> initial = new HashMap<>();
+                        stream.writeObject(initial);
+                    }
+                    return true;
                 } catch (IOException e) {
                     System.out.println(e.getMessage());
                     return false;
@@ -52,6 +57,8 @@ abstract class DatabaseHelper<K, V extends BaseEntity> {
         if (database.containsKey(key)) {
             return false;
         }
+
+        System.out.println(database);
         database.put(key, value);
         return writeDatabase(database);
     }
@@ -75,6 +82,10 @@ abstract class DatabaseHelper<K, V extends BaseEntity> {
         return readDatabase();
     }
 
+    protected int count() {
+        return readDatabase().size();
+    }
+
     protected boolean update(K key, V newValue) {
         Map<K, V> database = readDatabase();
         if (!database.containsKey(key)) {
@@ -94,18 +105,18 @@ abstract class DatabaseHelper<K, V extends BaseEntity> {
     }
 
     private boolean writeDatabase(Map<K, V> database) {
-        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(databaseFileName))) {
+        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(Constants.DATABASE_DIRECTORY_PATH + "/" + databaseFileName))) {
             oos.writeObject(database);
             return true;
         } catch (IOException e) {
-            System.out.println(e.getMessage());
+            e.printStackTrace();
             return false;
         }
     }
 
     private Map<K, V> readDatabase() {
         try {
-            ObjectInputStream ois = new ObjectInputStream(new FileInputStream(databaseFileName));
+            ObjectInputStream ois = new ObjectInputStream(new FileInputStream(Constants.DATABASE_DIRECTORY_PATH + "/" + databaseFileName));
             return (Map<K, V>) ois.readObject();
         } catch (IOException | ClassNotFoundException e) {
             System.out.println(e.getMessage());
