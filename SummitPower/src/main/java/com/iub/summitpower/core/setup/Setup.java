@@ -13,7 +13,7 @@ public class Setup {
     }
 
     public void createDefaultUsers() {
-        // addSeniorExecutive();
+        addSeniorExecutive();
     }
 
     private void addSeniorExecutive() {
@@ -33,7 +33,7 @@ public class Setup {
         } else {
             System.out.println("Unable to add initial Senior Executive");
         }
-
+        System.out.println(seniorExecutiveRepository.getAllExecutive());
     }
 
 }

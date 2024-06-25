@@ -9,7 +9,7 @@ public class SeniorExecutiveRepositoryImpl extends DatabaseHelper<String, Senior
 
 
     public SeniorExecutiveRepositoryImpl() {
-        super(SeniorExecutive.ENTITY_NAME);
+        super(SeniorExecutive.ENTITY_NAME, SeniorExecutive.class);
     }
 
     @Override
@@ -19,7 +19,7 @@ public class SeniorExecutiveRepositoryImpl extends DatabaseHelper<String, Senior
 
     @Override
     public Map<String, SeniorExecutive> getAllExecutive() {
-        return null;
+        return getAll();
     }
 
     @Override

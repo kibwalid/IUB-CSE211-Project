@@ -13,6 +13,10 @@ public class BaseUser extends BaseEntity {
     private String position;
     private UserType userType;
 
+    public BaseUser() {
+        super();
+    }
+
     public BaseUser(int id, String modelName, String name, String username, String password, String email, String phoneNumber, String position, UserType userType) {
         super(id, modelName);
         this.name = name;

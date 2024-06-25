@@ -2,6 +2,8 @@ package com.iub.summitpower.helpers;
 
 import com.iub.summitpower.core.models.database.BaseEntity;
 import com.iub.summitpower.config.Constants;
+import com.iub.summitpower.core.models.database.SeniorExecutive;
+import com.iub.summitpower.core.utills.ModelUtils;
 
 import java.io.*;
 import java.util.HashMap;
@@ -9,10 +11,12 @@ import java.util.Map;
 
 public abstract class DatabaseHelper<K, V extends BaseEntity> {
 
+    // TODO:: Make sure I throw error whenever there is no element or no element with primary key
     private String databaseFileName = ".txt";
     private File databaseFile;
+    private Class<V> entity;
 
-    protected DatabaseHelper(String databaseName) {
+    protected DatabaseHelper(String databaseName, Class<V> entity) {
         this.databaseFileName = databaseName + this.databaseFileName;
         this.databaseFile = new File(Constants.DATABASE_DIRECTORY_PATH, this.databaseFileName);
         if (!databaseExists()) {
@@ -22,6 +26,7 @@ public abstract class DatabaseHelper<K, V extends BaseEntity> {
                 System.out.println("Database file " + this.databaseFileName + " was not created due to a file error!");
             }
         }
+        this.entity = entity;
     }
 
     private boolean databaseExists() {
@@ -50,21 +55,19 @@ public abstract class DatabaseHelper<K, V extends BaseEntity> {
     }
 
     protected boolean add(K key, V value) {
-        Map<K, V> database = readDatabase();
+        Map<K, Map<String, Object>> database = readDatabase();
         if (key instanceof Integer) {
             key = (K)generateIntegerKey();
         }
         if (database.containsKey(key)) {
             return false;
         }
-
-        System.out.println(database);
-        database.put(key, value);
+        database.put(key, ModelUtils.toHashMap(value));
         return writeDatabase(database);
     }
 
     private Integer generateIntegerKey() {
-        Map<K, V> database = readDatabase();
+        Map<K, Map<String, Object>> database = readDatabase();
         int maxKey = database.keySet().stream()
                 .filter(key -> key instanceof Integer)
                 .mapToInt(key -> (Integer) key)
@@ -74,12 +77,18 @@ public abstract class DatabaseHelper<K, V extends BaseEntity> {
     }
 
     protected V get(K key) {
-        Map<K, V> database = readDatabase();
-        return database.get(key);
+        Map<K, Map<String, Object>> database = readDatabase();
+        return ModelUtils.fromHashMap(database.get(key), entity);
     }
 
     protected Map<K, V> getAll() {
-        return readDatabase();
+        Map<K, Map<String, Object>> database = readDatabase();
+        Map<K, V> result = new HashMap<>();
+        for (Map.Entry<K, Map<String, Object>> entry : database.entrySet()) {
+            V value = ModelUtils.fromHashMap(entry.getValue(), entity);
+            result.put(entry.getKey(), value);
+        }
+        return result;
     }
 
     protected int count() {
@@ -87,16 +96,16 @@ public abstract class DatabaseHelper<K, V extends BaseEntity> {
     }
 
     protected boolean update(K key, V newValue) {
-        Map<K, V> database = readDatabase();
+        Map<K, Map<String, Object>> database = readDatabase();
         if (!database.containsKey(key)) {
             return false;
         }
-        database.put(key, newValue);
+        database.put(key, ModelUtils.toHashMap(newValue));
         return writeDatabase(database);
     }
 
     protected boolean deleteRecord(K key) {
-        Map<K, V> database = readDatabase();
+        Map<K, Map<String, Object>> database = readDatabase();
         if (!database.containsKey(key)) {
             return false; // Record with the given key does not exist
         }
@@ -104,7 +113,7 @@ public abstract class DatabaseHelper<K, V extends BaseEntity> {
         return writeDatabase(database);
     }
 
-    private boolean writeDatabase(Map<K, V> database) {
+    private boolean writeDatabase(Map<K, Map<String, Object>> database) {
         try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(Constants.DATABASE_DIRECTORY_PATH + "/" + databaseFileName))) {
             oos.writeObject(database);
             return true;
@@ -114,14 +123,14 @@ public abstract class DatabaseHelper<K, V extends BaseEntity> {
         }
     }
 
-    private Map<K, V> readDatabase() {
+    private Map<K, Map<String, Object>> readDatabase() {
         try {
             ObjectInputStream ois = new ObjectInputStream(new FileInputStream(Constants.DATABASE_DIRECTORY_PATH + "/" + databaseFileName));
-            return (Map<K, V>) ois.readObject();
+            return (Map<K, Map<String, Object>>) ois.readObject();
         } catch (IOException | ClassNotFoundException e) {
             System.out.println(e.getMessage());
         }
-        return new HashMap<K, V>();
+        return new HashMap<>();
     }
 
 }

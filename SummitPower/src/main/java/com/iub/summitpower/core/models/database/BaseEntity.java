@@ -8,6 +8,10 @@ public abstract class BaseEntity {
     private int id;
     private String modelName;
 
+    public BaseEntity() {
+        // this is to accommodate conversion from Hashmap to Model
+    }
+
     public BaseEntity(int id, String modelName) {
         this.id = id;
         this.modelName = modelName;
