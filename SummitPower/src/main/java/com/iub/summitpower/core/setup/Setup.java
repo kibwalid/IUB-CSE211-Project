@@ -8,7 +8,7 @@ import java.io.IOException;
 
 public class Setup {
     public void injectDependencies() throws IOException {
-        Database.initializeDatabase();;
+        Database.initializeDatabase();
         Screens.loadNavigationItems();
     }
 

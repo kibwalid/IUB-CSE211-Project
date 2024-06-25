@@ -1,8 +1,5 @@
 package com.iub.summitpower.core.models.database;
 
-import java.time.Instant;
-import java.util.Date;
-
 public abstract class BaseEntity {
 
     private int id;

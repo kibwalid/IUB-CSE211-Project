@@ -2,11 +2,9 @@ package com.iub.summitpower.features.unlogged.login.services;
 
 import com.iub.summitpower.core.enums.UserType;
 import com.iub.summitpower.core.models.database.BaseUser;
-import com.iub.summitpower.core.models.database.SeniorExecutive;
 import com.iub.summitpower.features.hr_executive.repository.ISeniorExecutiveRepository;
 import com.iub.summitpower.features.hr_executive.repository.SeniorExecutiveRepositoryImpl;
 
-import javax.naming.AuthenticationException;
 import java.util.Objects;
 
 public class LoginServicesImpl implements ILoginServices{

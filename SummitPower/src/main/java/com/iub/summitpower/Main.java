@@ -2,9 +2,7 @@ package com.iub.summitpower;
 
 import com.iub.summitpower.core.setup.Screens;
 import com.iub.summitpower.core.setup.Setup;
-import com.iub.summitpower.features.unlogged.splash.SplashController;
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
