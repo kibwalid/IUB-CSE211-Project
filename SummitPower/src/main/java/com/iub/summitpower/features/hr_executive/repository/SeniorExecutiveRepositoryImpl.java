@@ -14,7 +14,7 @@ public class SeniorExecutiveRepositoryImpl extends DatabaseHelper<String, Senior
 
     @Override
     public SeniorExecutive getById(String username) {
-        return null;
+        return get(username);
     }
 
     @Override

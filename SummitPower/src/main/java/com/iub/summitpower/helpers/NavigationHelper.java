@@ -11,8 +11,8 @@ public abstract class NavigationHelper {
 
 
     public void navigateToPage(Node node, Parent navigateTo) {
-        Stage stage = (Stage) node.getScene().getWindow();
-        stage.setScene(new Scene(navigateTo));
+        Scene scene = node.getScene();
+        scene.setRoot(navigateTo);
     }
 
 }

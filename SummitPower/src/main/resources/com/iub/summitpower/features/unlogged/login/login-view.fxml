@@ -29,13 +29,16 @@
         <font>
             <Font name="Calibri Light" size="16.0" />
         </font></Label>
-    <TextField layoutX="814.0" layoutY="416.0" prefHeight="43.0" prefWidth="361.0" style="-fx-background-radius: 0; -fx-border-radius: 0; -fx-border-color: black;" />
+    <PasswordField  id="passwordField" fx:id="passwordField" layoutX="814.0" layoutY="416.0" prefHeight="43.0" prefWidth="361.0" style="-fx-background-radius: 0; -fx-border-radius: 0; -fx-border-color: black;" />
     <Label layoutX="814.0" layoutY="389.0" text="Password">
         <font>
             <Font name="Calibri Light" size="16.0" />
         </font></Label>
-    <TextField layoutX="814.0" layoutY="336.0" prefHeight="43.0" prefWidth="361.0" style="-fx-background-radius: 0; -fx-border-radius: 0; -fx-border-color: black;" />
-    <Button fx:id="loginButton" layoutX="813.0" layoutY="487.0" prefHeight="32.0" prefWidth="361.0" style="-fx-font-family: 'Calibri'; -fx-font-size: 16; -fx-background-color: black; -fx-border-color: black; -fx-border-width: 2px;" text="Login" textFill="WHITE" />
+    <TextField id="usernameField" fx:id="usernameField" layoutX="814.0" layoutY="336.0" prefHeight="43.0" prefWidth="361.0" style="-fx-background-radius: 0; -fx-border-radius: 0; -fx-border-color: black;" />
+    <ComboBox id="dropdownMenu" fx:id="dropdownMenu" layoutX="814.0" layoutY="479.0" prefHeight="25.0" prefWidth="361.0" style="-fx-border-width: 1px; -fx-background-color: transparent; -fx-border-color: black;" />
+
+    <Button layoutX="813.0" layoutY="537.0" onAction="#onLoginPressed" prefHeight="32.0" prefWidth="361.0" style="-fx-font-family: 'Calibri'; -fx-font-size: 16; -fx-background-color: black; -fx-border-color: black; -fx-border-width: 2px;" text="Login" textFill="WHITE" />
+    <Button fx:id="backButton" layoutX="763.0" layoutY="28.0" prefHeight="14.0" prefWidth="85.0" style="-fx-font-family: 'Calibri'; -fx-font-size: 14; -fx-background-color: transparent; -fx-border-color: black; -fx-border-width: 2px;" text="← Go Back" />
 
 
 
@@ -62,8 +65,8 @@
         </font>
 
     </Label>
-   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#4a4c4d" height="6.0" layoutX="960.0" layoutY="562.0" stroke="WHITE" strokeType="INSIDE" width="67.0" />
-   <Label fx:id="label1" layoutX="888.0" layoutY="596.0" text="Don't have an account? Register now!">
+   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#4a4c4d" height="6.0" layoutX="960.0" layoutY="612.0" stroke="WHITE" strokeType="INSIDE" width="67.0" />
+   <Label fx:id="label1" layoutX="888.0" layoutY="646.0" text="Don't have an account? Register now!">
       <font>
          <Font name="Calibri Light" size="14.0" />
       </font>
