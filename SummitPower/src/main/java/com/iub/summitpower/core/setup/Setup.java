@@ -18,9 +18,9 @@ public class Setup {
     }
 
     private void addSeniorExecutive() {
-        BaseRepository seniorExecutiveRepository = new SeniorExecutiveRepositoryImpl();
+        SeniorExecutiveRepositoryImpl seniorExecutiveRepository = new SeniorExecutiveRepositoryImpl();
         SeniorExecutive executive = new SeniorExecutive(
-                seniorExecutiveRepository.count()+1,
+                seniorExecutiveRepository.countAll()+1,
                 "Khalid Ibnul",
                 "admin",
                 "admin",
@@ -35,7 +35,7 @@ public class Setup {
         } else {
             System.out.println("Unable to add initial Senior Executive");
         }
-        System.out.println(seniorExecutiveRepository.getAll());
+        System.out.println(seniorExecutiveRepository.getAllData());
     }
 
 }
