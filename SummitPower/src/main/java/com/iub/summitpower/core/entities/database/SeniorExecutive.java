@@ -1,6 +1,9 @@
 package com.iub.summitpower.core.entities.database;
 
+import com.iub.summitpower.core.entities.fucntional.Message;
 import com.iub.summitpower.core.enums.UserType;
+
+import java.util.List;
 
 public class SeniorExecutive extends BaseUser{
 
@@ -10,12 +13,15 @@ public class SeniorExecutive extends BaseUser{
         super();
     }
 
-    public SeniorExecutive(int id, String name, String username, String password, String email, String phoneNumber, String position, double salary) {
+    public SeniorExecutive(int id, String name, String username, String password, String email, String phoneNumber, String position, double salary,
+                           List<Message> messages) {
         super(id, SeniorExecutive.ENTITY_NAME, name, username, password, email, phoneNumber, position, UserType.SENIOR_EXECUTIVE);
         this.salary = salary;
+        this.messages = messages;
     }
 
     private double salary;
+    private List<Message> messages;
 
     public double getSalary() {
         return salary;
@@ -25,16 +31,11 @@ public class SeniorExecutive extends BaseUser{
         this.salary = salary;
     }
 
-    @Override
-    public String toString() {
-        return "SeniorExecutive{" +
-                "id=" + getId() +
-                ", name='" + getName() + '\'' +
-                ", username='" + getUsername() + '\'' +
-                ", email='" + getEmail() + '\'' +
-                ", phoneNumber='" + getPhoneNumber() + '\'' +
-                ", position='" + getPosition() + '\'' +
-                ", salary=" + salary +
-                '}';
+    public List<Message> getMessages() {
+        return messages;
+    }
+
+    public void setMessages(List<Message> messages) {
+        this.messages = messages;
     }
 }

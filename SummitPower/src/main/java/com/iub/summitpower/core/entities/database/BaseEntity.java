@@ -1,6 +1,8 @@
 package com.iub.summitpower.core.entities.database;
 
-public abstract class BaseEntity {
+import java.io.Serializable;
+
+public abstract class BaseEntity implements Serializable {
 
     private int id;
     private String modelName;

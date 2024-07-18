@@ -5,6 +5,7 @@ import com.iub.summitpower.features.senior_executive.repository.ISeniorExecutive
 import com.iub.summitpower.features.senior_executive.repository.SeniorExecutiveRepositoryImpl;
 
 import java.io.IOException;
+import java.util.List;
 
 public class Setup {
     public void injectDependencies() throws IOException {
@@ -21,12 +22,13 @@ public class Setup {
         SeniorExecutive executive = new SeniorExecutive(
                 seniorExecutiveRepository.countExecutives()+1,
                 "Khalid Ibnul",
-                "kibwalid",
+                "admin",
                 "admin",
                 "kibwalid@gmail.com",
                 "+880-11914-21477",
                 "CEO",
-                6000000
+                6000000,
+                List.of()
         );
         if(seniorExecutiveRepository.addExecutive(executive)) {
             System.out.println("Added initial Senior Executive");
