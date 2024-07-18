@@ -1,9 +1,9 @@
 package com.iub.summitpower.features.unlogged.login.services;
 
 import com.iub.summitpower.core.enums.UserType;
-import com.iub.summitpower.core.models.database.BaseUser;
-import com.iub.summitpower.features.hr_executive.repository.ISeniorExecutiveRepository;
-import com.iub.summitpower.features.hr_executive.repository.SeniorExecutiveRepositoryImpl;
+import com.iub.summitpower.core.entities.database.BaseUser;
+import com.iub.summitpower.features.senior_executive.repository.ISeniorExecutiveRepository;
+import com.iub.summitpower.features.senior_executive.repository.SeniorExecutiveRepositoryImpl;
 
 import java.util.Objects;
 

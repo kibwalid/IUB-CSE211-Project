@@ -1,6 +1,6 @@
 package com.iub.summitpower.helpers;
 
-import com.iub.summitpower.core.models.database.BaseEntity;
+import com.iub.summitpower.core.entities.database.BaseEntity;
 import com.iub.summitpower.config.Constants;
 import com.iub.summitpower.core.utills.ModelUtils;
 

@@ -1,6 +1,6 @@
-package com.iub.summitpower.features.hr_executive.repository;
+package com.iub.summitpower.features.senior_executive.repository;
 
-import com.iub.summitpower.core.models.database.SeniorExecutive;
+import com.iub.summitpower.core.entities.database.SeniorExecutive;
 
 import java.util.Map;
 
