@@ -26,6 +26,8 @@ public class LoginController extends NavigationHelper {
     public ComboBox<UserType> dropdownMenu;
     @FXML
     public Button backButton;
+    @FXML
+    public Button loginButton;
 
     @FXML
     public void initialize() {
@@ -50,9 +52,9 @@ public class LoginController extends NavigationHelper {
         try {
             boolean isLogin = loginServices.login(usernameField.getText(), passwordField.getText(), selectedUserType);
             if(isLogin) {
-                ViewControlUtils.showAlert("Login Successful");
+                navigateToPage(loginButton, Screens.seniorExecutiveDashboard);
             }
-            ViewControlUtils.showAlert("Something unexpected happened. Please contact Khalid!");
+
         } catch (Exception e) {
             ViewControlUtils.showAlert(e.getMessage());
         }
