@@ -1,4 +1,4 @@
-package com.iub.summitpower.core.models.database;
+package com.iub.summitpower.core.entities.database;
 
 import com.iub.summitpower.core.enums.UserType;
 

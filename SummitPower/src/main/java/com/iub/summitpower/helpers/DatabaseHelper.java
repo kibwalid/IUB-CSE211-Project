@@ -1,7 +1,7 @@
 package com.iub.summitpower.helpers;
 
-import com.iub.summitpower.core.models.database.BaseEntity;
 import com.iub.summitpower.config.Constants;
+import com.iub.summitpower.core.entities.database.BaseEntity;
 import com.iub.summitpower.core.utills.ModelUtils;
 
 import java.io.*;
@@ -10,8 +10,7 @@ import java.util.Map;
 
 public abstract class DatabaseHelper<K, V extends BaseEntity> {
 
-    // TODO:: Make sure I throw error whenever there is no element or no element with primary key
-    private String databaseFileName = ".txt";
+    private String databaseFileName = ".bin";
     private File databaseFile;
     private Class<V> entity;
 
@@ -36,12 +35,13 @@ public abstract class DatabaseHelper<K, V extends BaseEntity> {
     private boolean createDatabase() {
         File directory = new File(Constants.DATABASE_DIRECTORY_PATH);
         if (!directory.exists()) {
-            if(directory.mkdirs()) {
+            if (directory.mkdirs()) {
                 try {
-                    if(databaseFile.createNewFile()) {
-                        ObjectOutputStream stream = new ObjectOutputStream(new FileOutputStream(Constants.DATABASE_DIRECTORY_PATH + "/" + databaseFileName));
+                    if (databaseFile.createNewFile()) {
+                        ObjectOutputStream stream = new ObjectOutputStream(new FileOutputStream(databaseFile));
                         HashMap<K, V> initial = new HashMap<>();
                         stream.writeObject(initial);
+                        stream.close();
                     }
                     return true;
                 } catch (IOException e) {
@@ -56,7 +56,7 @@ public abstract class DatabaseHelper<K, V extends BaseEntity> {
     protected boolean add(K key, V value) {
         Map<K, Map<String, Object>> database = readDatabase();
         if (key instanceof Integer) {
-            key = (K)generateIntegerKey();
+            key = (K) generateIntegerKey();
         }
         if (database.containsKey(key)) {
             return false;
@@ -113,7 +113,7 @@ public abstract class DatabaseHelper<K, V extends BaseEntity> {
     }
 
     private boolean writeDatabase(Map<K, Map<String, Object>> database) {
-        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(Constants.DATABASE_DIRECTORY_PATH + "/" + databaseFileName))) {
+        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(databaseFile))) {
             oos.writeObject(database);
             return true;
         } catch (IOException e) {
@@ -123,8 +123,7 @@ public abstract class DatabaseHelper<K, V extends BaseEntity> {
     }
 
     private Map<K, Map<String, Object>> readDatabase() {
-        try {
-            ObjectInputStream ois = new ObjectInputStream(new FileInputStream(Constants.DATABASE_DIRECTORY_PATH + "/" + databaseFileName));
+        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(databaseFile))) {
             return (Map<K, Map<String, Object>>) ois.readObject();
         } catch (IOException | ClassNotFoundException e) {
             System.out.println(e.getMessage());
