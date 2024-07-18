@@ -1,8 +1,8 @@
 package com.iub.summitpower.core.setup;
 
 import com.iub.summitpower.core.entities.database.SeniorExecutive;
-import com.iub.summitpower.features.senior_executive.repository.ISeniorExecutiveRepository;
-import com.iub.summitpower.features.senior_executive.repository.SeniorExecutiveRepositoryImpl;
+import com.iub.summitpower.core.BaseRepository;
+import com.iub.summitpower.features.senior_executive.repositories.SeniorExecutiveRepositoryImpl;
 
 import java.io.IOException;
 import java.util.List;
@@ -18,9 +18,9 @@ public class Setup {
     }
 
     private void addSeniorExecutive() {
-        ISeniorExecutiveRepository seniorExecutiveRepository = new SeniorExecutiveRepositoryImpl();
+        BaseRepository seniorExecutiveRepository = new SeniorExecutiveRepositoryImpl();
         SeniorExecutive executive = new SeniorExecutive(
-                seniorExecutiveRepository.countExecutives()+1,
+                seniorExecutiveRepository.count()+1,
                 "Khalid Ibnul",
                 "admin",
                 "admin",
@@ -30,12 +30,12 @@ public class Setup {
                 6000000,
                 List.of()
         );
-        if(seniorExecutiveRepository.addExecutive(executive)) {
+        if(seniorExecutiveRepository.add(executive)) {
             System.out.println("Added initial Senior Executive");
         } else {
             System.out.println("Unable to add initial Senior Executive");
         }
-        System.out.println(seniorExecutiveRepository.getAllExecutive());
+        System.out.println(seniorExecutiveRepository.getAll());
     }
 
 }

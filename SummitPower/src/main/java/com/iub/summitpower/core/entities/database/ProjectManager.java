@@ -4,10 +4,11 @@ import com.iub.summitpower.core.entities.fucntional.Message;
 import com.iub.summitpower.core.entities.fucntional.Project;
 import com.iub.summitpower.core.entities.fucntional.Task;
 import com.iub.summitpower.core.entities.fucntional.WorkHistory;
+import com.iub.summitpower.core.enums.UserType;
 
 import java.util.List;
 
-public class ProjectManager extends BaseEntity {
+public class ProjectManager extends BaseUser {
 
     public final static String ENTITY_NAME = "ProjectManager";
 
@@ -21,15 +22,14 @@ public class ProjectManager extends BaseEntity {
         super();
     }
 
-    public ProjectManager(int id, List<WorkHistory> workHistory, double salary, List<Message> messages, List<Project> projects, List<Task> tasks) {
-        super(id, ENTITY_NAME);
+    public ProjectManager(int id, String name, String username, String password, String email, String phoneNumber, String position, UserType userType, List<WorkHistory> workHistory, double salary, List<Message> messages, List<Project> projects, List<Task> tasks) {
+        super(id, ENTITY_NAME, name, username, password, email, phoneNumber, position, userType);
         this.workHistory = workHistory;
         this.salary = salary;
         this.messages = messages;
         this.projects = projects;
         this.tasks = tasks;
     }
-
 
     public List<WorkHistory> getWorkHistory() {
         return workHistory;

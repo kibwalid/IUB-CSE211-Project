@@ -1,15 +1,16 @@
-package com.iub.summitpower.features.senior_executive.repository;
+package com.iub.summitpower.features.senior_executive.repositories;
 
+import com.iub.summitpower.core.BaseRepository;
 import com.iub.summitpower.core.entities.database.SeniorExecutive;
 import com.iub.summitpower.helpers.DatabaseHelper;
 
 import java.util.Map;
 
-public class SeniorExecutiveRepositoryImpl extends DatabaseHelper<String, SeniorExecutive> implements ISeniorExecutiveRepository {
+public class SeniorExecutiveRepositoryImpl extends DatabaseHelper<String, SeniorExecutive> implements BaseRepository<String, SeniorExecutive> {
 
 
     public SeniorExecutiveRepositoryImpl() {
-        super(SeniorExecutive.ENTITY_NAME, SeniorExecutive.class);
+        super(SeniorExecutive.ENTITY_NAME);
     }
 
     @Override
@@ -18,17 +19,17 @@ public class SeniorExecutiveRepositoryImpl extends DatabaseHelper<String, Senior
     }
 
     @Override
-    public Map<String, SeniorExecutive> getAllExecutive() {
+    public Map<String, SeniorExecutive> getAllData() {
         return getAll();
     }
 
     @Override
-    public boolean addExecutive(SeniorExecutive user) {
+    public boolean add(SeniorExecutive user) {
         return add(user.getUsername(), user);
     }
 
     @Override
-    public int countExecutives() {
+    public int countAll() {
         return count();
     }
 

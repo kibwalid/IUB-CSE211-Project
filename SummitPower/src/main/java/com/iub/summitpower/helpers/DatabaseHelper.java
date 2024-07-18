@@ -11,9 +11,8 @@ public abstract class DatabaseHelper<K, V extends BaseEntity> {
 
     private String databaseFileName = ".bin";
     private File databaseFile;
-    private Class<V> entity;
 
-    protected DatabaseHelper(String databaseName, Class<V> entity) {
+    protected DatabaseHelper(String databaseName) {
         this.databaseFileName = databaseName + this.databaseFileName;
         this.databaseFile = new File(Constants.DATABASE_DIRECTORY_PATH, this.databaseFileName);
         if (!databaseExists()) {
@@ -23,7 +22,6 @@ public abstract class DatabaseHelper<K, V extends BaseEntity> {
                 System.out.println("Database file " + this.databaseFileName + " was not created due to a file error!");
             }
         }
-        this.entity = entity;
     }
 
     private boolean databaseExists() {

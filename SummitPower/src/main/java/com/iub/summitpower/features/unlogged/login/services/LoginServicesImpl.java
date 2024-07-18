@@ -2,14 +2,20 @@ package com.iub.summitpower.features.unlogged.login.services;
 
 import com.iub.summitpower.core.enums.UserType;
 import com.iub.summitpower.core.entities.database.BaseUser;
-import com.iub.summitpower.features.senior_executive.repository.ISeniorExecutiveRepository;
-import com.iub.summitpower.features.senior_executive.repository.SeniorExecutiveRepositoryImpl;
+import com.iub.summitpower.core.utills.ViewControlUtils;
+import com.iub.summitpower.features.business_analyst.repositories.BusinessAnalystRespositoyImpl;
+import com.iub.summitpower.features.hr_executive.repositories.HRExecutiveRepositoryImpl;
+import com.iub.summitpower.features.sales_executive.repositories.SalesExecutiveRepositoryImpl;
+import com.iub.summitpower.features.senior_executive.repositories.SeniorExecutiveRepositoryImpl;
 
 import java.util.Objects;
 
 public class LoginServicesImpl implements ILoginServices{
 
-    private final ISeniorExecutiveRepository seniorExecutiveRepository = new SeniorExecutiveRepositoryImpl();
+    private final SeniorExecutiveRepositoryImpl seniorExecutiveRepository = new SeniorExecutiveRepositoryImpl();
+    private final HRExecutiveRepositoryImpl hrExecutiveRepository = new HRExecutiveRepositoryImpl();
+    private final SalesExecutiveRepositoryImpl salesExecutiveRepository = new SalesExecutiveRepositoryImpl();
+    private final BusinessAnalystRespositoyImpl businessAnalystRespositoy = new BusinessAnalystRespositoyImpl();
 
     @Override
     public boolean login(String username, String password, UserType userType) throws Exception {
@@ -25,14 +31,11 @@ public class LoginServicesImpl implements ILoginServices{
             case SENIOR_EXECUTIVE:
                 return seniorExecutiveRepository.getById(username);
             case HR_EXECUTIVE:
-                System.out.println("User is an HR Executive");
-                break;
+                return hrExecutiveRepository.getById(username);
             case SALES_EXECUTIVE:
-                System.out.println("User is a Sales Executive");
-                break;
+                return salesExecutiveRepository.getById(username);
             case BUSINESS_ANALYST:
-                System.out.println("User is a Business Analyst");
-                break;
+                return businessAnalystRespositoy.getById(username);
             case PROJECT_MANAGER:
                 System.out.println("User is a Project Manager");
                 break;
@@ -52,9 +55,10 @@ public class LoginServicesImpl implements ILoginServices{
                 System.out.println("User is a Customer Support Agent");
                 break;
             default:
-                System.out.println("Unknown user type");
+                ViewControlUtils.showAlert("User type is not defined. Please select user type and try again!");
                 break;
         }
+
         return null;
     }
 
