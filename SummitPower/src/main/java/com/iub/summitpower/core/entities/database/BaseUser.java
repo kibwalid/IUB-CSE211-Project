@@ -2,6 +2,8 @@ package com.iub.summitpower.core.entities.database;
 
 import com.iub.summitpower.core.enums.UserType;
 
+import java.time.LocalDateTime;
+
 public class BaseUser extends BaseEntity {
 
     private String name;
@@ -12,6 +14,9 @@ public class BaseUser extends BaseEntity {
     private String phoneNumber;
     private String position;
     private UserType userType;
+
+    private BaseUser addedBy;
+
 
     public BaseUser() {
         super();
@@ -26,6 +31,14 @@ public class BaseUser extends BaseEntity {
         this.phoneNumber = phoneNumber;
         this.position = position;
         this.userType = userType;
+    }
+
+    public BaseUser getAddedBy() {
+        return addedBy;
+    }
+
+    public void setAddedBy(BaseUser addedBy) {
+        this.addedBy = addedBy;
     }
 
     public String getName() {

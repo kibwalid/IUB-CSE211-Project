@@ -17,8 +17,8 @@ public class BusinessAnalyst extends BaseUser {
         super();
     }
 
-    public BusinessAnalyst(int id, String name, String username, String password, String email, String phoneNumber, String position, UserType userType, List<WorkHistory> workHistory, double salary, List<Message> messages) {
-        super(id, ENTITY_NAME, name, username, password, email, phoneNumber, position, userType);
+    public BusinessAnalyst(int id, String name, String username, String password, String email, String phoneNumber, String position, List<WorkHistory> workHistory, double salary, List<Message> messages) {
+        super(id, ENTITY_NAME, name, username, password, email, phoneNumber, position, UserType.CUSTOMER_AGENT);
         this.workHistory = workHistory;
         this.salary = salary;
         this.messages = messages;

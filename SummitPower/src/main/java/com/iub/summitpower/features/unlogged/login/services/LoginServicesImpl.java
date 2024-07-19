@@ -2,6 +2,7 @@ package com.iub.summitpower.features.unlogged.login.services;
 
 import com.iub.summitpower.core.enums.UserType;
 import com.iub.summitpower.core.entities.database.BaseUser;
+import com.iub.summitpower.core.setup.Setup;
 import com.iub.summitpower.core.utills.RepositoryUtils;
 import com.iub.summitpower.core.utills.ViewControlUtils;
 import com.iub.summitpower.features.business_analyst.repositories.BusinessAnalystRespositoyImpl;
@@ -24,6 +25,7 @@ public class LoginServicesImpl extends RepositoryUtils implements ILoginServices
     public boolean login(String username, String password, UserType userType) throws Exception {
         BaseUser user = getIfUserExists(username, userType);
         if(user != null && passwordMatches(user, password)) {
+            Setup.currentUser = user;
             return true;
         }
         throw new Exception("Username and password does not match! Please try again or contact our customer support agents.");

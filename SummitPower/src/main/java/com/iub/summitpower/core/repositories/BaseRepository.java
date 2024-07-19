@@ -1,4 +1,4 @@
-package com.iub.summitpower.core;
+package com.iub.summitpower.core.repositories;
 
 import java.util.Map;
 

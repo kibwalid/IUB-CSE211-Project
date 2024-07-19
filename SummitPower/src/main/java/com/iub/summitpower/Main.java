@@ -13,7 +13,6 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) throws Exception {
 
-
         Scene scene = new Scene(Screens.splashScreen, 1280, 720);
         stage.initStyle(StageStyle.UTILITY); // Remove window decorations
         stage.setTitle("Summit Power");

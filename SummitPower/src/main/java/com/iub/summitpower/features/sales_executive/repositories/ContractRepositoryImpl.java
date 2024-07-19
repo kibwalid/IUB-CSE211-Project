@@ -1,11 +1,9 @@
 package com.iub.summitpower.features.sales_executive.repositories;
 
-import com.iub.summitpower.core.BaseRepository;
+import com.iub.summitpower.core.repositories.BaseRepository;
 import com.iub.summitpower.core.entities.fucntional.Contract;
 import com.iub.summitpower.helpers.DatabaseHelper;
 
-import java.time.LocalDateTime;
-import java.util.Date;
 import java.util.List;
 import java.util.Map;
 

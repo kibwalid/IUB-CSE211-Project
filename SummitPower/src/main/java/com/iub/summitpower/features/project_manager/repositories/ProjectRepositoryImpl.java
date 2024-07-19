@@ -1,6 +1,6 @@
 package com.iub.summitpower.features.project_manager.repositories;
 
-import com.iub.summitpower.core.BaseRepository;
+import com.iub.summitpower.core.repositories.BaseRepository;
 import com.iub.summitpower.core.entities.fucntional.Project;
 import com.iub.summitpower.core.enums.Status;
 import com.iub.summitpower.helpers.DatabaseHelper;

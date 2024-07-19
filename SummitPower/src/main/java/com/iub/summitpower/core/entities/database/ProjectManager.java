@@ -22,8 +22,8 @@ public class ProjectManager extends BaseUser {
         super();
     }
 
-    public ProjectManager(int id, String name, String username, String password, String email, String phoneNumber, String position, UserType userType, List<WorkHistory> workHistory, double salary, List<Message> messages, List<Project> projects, List<Task> tasks) {
-        super(id, ENTITY_NAME, name, username, password, email, phoneNumber, position, userType);
+    public ProjectManager(int id, String name, String username, String password, String email, String phoneNumber, String position, List<WorkHistory> workHistory, double salary, List<Message> messages, List<Project> projects, List<Task> tasks) {
+        super(id, ENTITY_NAME, name, username, password, email, phoneNumber, position, UserType.PROJECT_MANAGER);
         this.workHistory = workHistory;
         this.salary = salary;
         this.messages = messages;

@@ -52,6 +52,7 @@ public class LoginController extends NavigationHelper {
         try {
             boolean isLogin = loginServices.login(usernameField.getText(), passwordField.getText(), selectedUserType);
             if(isLogin) {
+                Screens.refreshScreens();
                 navigateToPage(loginButton, Screens.seniorExecutiveDashboard);
             }
 

@@ -1,13 +1,16 @@
 package com.iub.summitpower.core.setup;
 
+import com.iub.summitpower.core.entities.database.BaseUser;
 import com.iub.summitpower.core.entities.database.SeniorExecutive;
-import com.iub.summitpower.core.BaseRepository;
 import com.iub.summitpower.features.senior_executive.repositories.SeniorExecutiveRepositoryImpl;
 
 import java.io.IOException;
 import java.util.List;
 
 public class Setup {
+
+    public static BaseUser currentUser;
+
     public void injectDependencies() throws IOException {
         Database.initializeDatabase();
         Screens.loadNavigationItems();

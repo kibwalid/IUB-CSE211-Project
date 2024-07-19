@@ -48,4 +48,17 @@ public class ModelUtils {
         }
         return obj;
     }
+
+    public static void validateDouble(String number, String label) {
+        try {
+            double num = Double.parseDouble(number);
+            if(num < 1) {
+                ViewControlUtils.showAlert(label + " must be at least 1 Tk");
+            }
+        } catch (NumberFormatException e) {
+            ViewControlUtils.showAlert(label + " number must be a number");
+        }
+    }
+
+
 }

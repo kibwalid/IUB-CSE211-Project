@@ -1,8 +1,7 @@
 package com.iub.summitpower.features.engineer.repositories;
 
-import com.iub.summitpower.core.BaseRepository;
+import com.iub.summitpower.core.repositories.BaseRepository;
 import com.iub.summitpower.core.entities.database.Engineer;
-import com.iub.summitpower.core.entities.database.ProjectManager;
 import com.iub.summitpower.helpers.DatabaseHelper;
 
 import java.util.Map;

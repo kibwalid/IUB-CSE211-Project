@@ -1,6 +1,6 @@
 package com.iub.summitpower.features.senior_executive.repositories;
 
-import com.iub.summitpower.core.BaseRepository;
+import com.iub.summitpower.core.repositories.BaseRepository;
 import com.iub.summitpower.core.entities.database.SeniorExecutive;
 import com.iub.summitpower.helpers.DatabaseHelper;
 

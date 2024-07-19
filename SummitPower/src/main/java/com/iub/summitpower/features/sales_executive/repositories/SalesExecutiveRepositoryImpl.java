@@ -1,7 +1,6 @@
 package com.iub.summitpower.features.sales_executive.repositories;
 
-import com.iub.summitpower.core.BaseRepository;
-import com.iub.summitpower.core.entities.database.HRExecutive;
+import com.iub.summitpower.core.repositories.BaseRepository;
 import com.iub.summitpower.core.entities.database.SalesExecutive;
 import com.iub.summitpower.helpers.DatabaseHelper;
 

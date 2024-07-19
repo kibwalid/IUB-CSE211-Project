@@ -1,24 +1,19 @@
 package com.iub.summitpower.features.senior_executive.services;
 
-import com.iub.summitpower.core.entities.database.BaseUser;
+import com.iub.summitpower.core.entities.database.*;
 import com.iub.summitpower.core.entities.fucntional.Project;
+import com.iub.summitpower.core.enums.UserType;
+import com.iub.summitpower.core.setup.Setup;
+import com.iub.summitpower.core.utills.ModelUtils;
 import com.iub.summitpower.core.utills.RepositoryUtils;
-import com.iub.summitpower.features.business_analyst.repositories.BusinessAnalystRespositoyImpl;
-import com.iub.summitpower.features.customer_agent.repositories.CustomerAgentRepositoyImpl;
-import com.iub.summitpower.features.customer_support_agent.repositories.CustomerSupportAgentRepositoyImpl;
-import com.iub.summitpower.features.engineer.repositories.EngineerRepositoyImpl;
-import com.iub.summitpower.features.hr_executive.repositories.HRExecutiveRepositoryImpl;
-import com.iub.summitpower.features.maintenance_engineer.repositories.MaintenanceEngineerRepositoyImpl;
-import com.iub.summitpower.features.project_manager.repositories.ProjectManagerRepositoyImpl;
-import com.iub.summitpower.features.project_manager.repositories.ProjectRepositoryImpl;
-import com.iub.summitpower.features.quality_assurance_tester.repositories.QualityAssuranceTesterRepositoyImpl;
-import com.iub.summitpower.features.sales_executive.repositories.ContractRepositoryImpl;
-import com.iub.summitpower.features.sales_executive.repositories.SalesExecutiveRepositoryImpl;
-import com.iub.summitpower.features.senior_executive.repositories.SeniorExecutiveRepositoryImpl;
+import com.iub.summitpower.core.utills.ViewControlUtils;
 
 import java.util.List;
+import java.util.Objects;
 
-public class SeniorExecutiveServicesImpl extends RepositoryUtils implements ISeniorExecutiveServices {
+import static com.iub.summitpower.core.enums.UserType.*;
+
+public class SeniorExecutiveServicesImpl extends RepositoryUtils implements ISeniorExecutiveDashboardServices, IUserServices {
 
 
     @Override
@@ -62,4 +57,87 @@ public class SeniorExecutiveServicesImpl extends RepositoryUtils implements ISen
     public List<Project> getActiveProjects() {
         return projectRepository.getAllActiveProjects();
     }
+
+    @Override
+    public boolean registerEmployee(String name, String username, String password, String email, String phoneNumber, String position, String salary, UserType employeeType) {
+        double dSalary = Double.parseDouble(salary);
+        switch (employeeType) {
+            case SENIOR_EXECUTIVE:
+                if(Setup.currentUser != null && Setup.currentUser.getUserType() != SENIOR_EXECUTIVE) {
+                    ViewControlUtils.showAlert("You are not allowed to add an Executive! Please contact an executive for further assistance!");
+                    return false;
+                }
+                return seniorExecutiveRepository.add(new SeniorExecutive(0, name, username, password, email, phoneNumber, position, dSalary, List.of()));
+
+            case HR_EXECUTIVE:
+                return hrExecutiveRepository.add(new HRExecutive(0, name, username, password, email, phoneNumber, position, List.of(), dSalary, List.of()));
+
+            case SALES_EXECUTIVE:
+                return salesExecutiveRepository.add(new SalesExecutive(0, name, username, password, email, phoneNumber, position, List.of(), dSalary, List.of(), List.of()));
+
+            case BUSINESS_ANALYST:
+                return businessAnalystRespositoy.add(new BusinessAnalyst(0, name, username, password, email, phoneNumber, position, List.of(), dSalary, List.of()));
+
+            case PROJECT_MANAGER:
+                return projectManagerRepositoy.add(new ProjectManager(0, name, username, password, email, phoneNumber, position, List.of(), dSalary, List.of(), List.of(), List.of()));
+
+            case ENGINEER:
+                return engineerRepositoy.add(new Engineer(0, name, username, password, email, phoneNumber, position, dSalary,List.of(), List.of(), List.of()));
+
+            case QUALITY_ASSURANCE_TESTER:
+                return qualityAssuranceTesterRepositoy.add(new QualityAssuranceTester(0, name, username, password, email, phoneNumber, position, dSalary,List.of(), List.of(), List.of()));
+
+            case MAINTENANCE_ENGINEER:
+                return maintenanceEngineerRepositoy.add(new MaintenanceEngineer(0, name, username, password, email, phoneNumber, position, dSalary,List.of(), List.of(), List.of()));
+
+            case CUSTOMER_SUPPORT_AGENT:
+                return customerSupportAgentRepositoy.add(new CustomerSupportAgent(0, name, username, password, email, phoneNumber, position, List.of(), dSalary, List.of()));
+
+            default:
+                ViewControlUtils.showAlert("User type is not defined. Please select user type and try again!");
+                break;
+        }
+        ViewControlUtils.showAlert("Unable to register! Please contact Khalid.");
+
+        return false;
+    }
+
+
+    @Override
+    public void validateUserData(String name, String username, String password, String email, String phoneNumber, String position, String salary, UserType employeeType, String signature) {
+
+        if(name.length() < 4) {
+            ViewControlUtils.showAlert("Name must be at least 4 chars long");
+        }
+
+        if(username.length() < 4) {
+            ViewControlUtils.showAlert("Username must be at least 4 chars long");
+        }
+
+        if(password.length() < 6) {
+            ViewControlUtils.showAlert("Password must be at least 8 chars long");
+        }
+
+        if(phoneNumber.length() < 10) {
+            ViewControlUtils.showAlert("Phone  must be at least 8 chars long");
+        }
+
+        ModelUtils.validateDouble(salary, "Salary");
+
+        if(position.length() < 2) {
+            ViewControlUtils.showAlert("Password must be at least 3 chars long");
+        }
+
+        if(employeeType == null) {
+            ViewControlUtils.showAlert("Employee Type must be selected");
+        }
+
+        String compSign = Setup.currentUser.getName().split(" ")[0];
+        if(Setup.currentUser != null && !Objects.equals(signature, compSign)) {
+            ViewControlUtils.showAlert("Signature must be the same as your first name.");
+        }
+
+    }
+
+
 }

@@ -19,8 +19,8 @@ public class SalesExecutive extends BaseUser {
     private List<Message> messages;
     private List<Contract> contracts;
 
-    public SalesExecutive(int id, String name, String username, String password, String email, String phoneNumber, String position, UserType userType, List<WorkHistory> workHistory, double salary, List<Message> messages, List<Contract> contracts) {
-        super(id, ENTITY_NAME, name, username, password, email, phoneNumber, position, userType);
+    public SalesExecutive(int id, String name, String username, String password, String email, String phoneNumber, String position, List<WorkHistory> workHistory, double salary, List<Message> messages, List<Contract> contracts) {
+        super(id, ENTITY_NAME, name, username, password, email, phoneNumber, position, UserType.SALES_EXECUTIVE);
         this.workHistory = workHistory;
         this.salary = salary;
         this.messages = messages;

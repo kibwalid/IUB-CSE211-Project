@@ -1,6 +1,6 @@
 package com.iub.summitpower.features.customer_agent.repositories;
 
-import com.iub.summitpower.core.BaseRepository;
+import com.iub.summitpower.core.repositories.BaseRepository;
 import com.iub.summitpower.core.entities.database.CustomerAgent;
 import com.iub.summitpower.helpers.DatabaseHelper;
 

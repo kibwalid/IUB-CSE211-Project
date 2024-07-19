@@ -1,8 +1,7 @@
 package com.iub.summitpower.features.maintenance_engineer.repositories;
 
-import com.iub.summitpower.core.BaseRepository;
+import com.iub.summitpower.core.repositories.BaseRepository;
 import com.iub.summitpower.core.entities.database.MaintenanceEngineer;
-import com.iub.summitpower.core.entities.database.QualityAssuranceTester;
 import com.iub.summitpower.helpers.DatabaseHelper;
 
 import java.util.Map;

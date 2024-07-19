@@ -17,8 +17,8 @@ public class CustomerAgent extends BaseUser{
         super();
     }
 
-    public CustomerAgent(int id, String name, String username, String password, String email, String phoneNumber, String position, UserType userType, List<Message> messages, List<Contract> contracts) {
-        super(id, ENTITY_NAME, name, username, password, email, phoneNumber, position, userType);
+    public CustomerAgent(int id, String name, String username, String password, String email, String phoneNumber, String position, List<Message> messages, List<Contract> contracts) {
+        super(id, ENTITY_NAME, name, username, password, email, phoneNumber, position, UserType.CUSTOMER_AGENT);
         this.messages = messages;
         this.contracts = contracts;
     }

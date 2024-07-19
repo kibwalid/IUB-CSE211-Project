@@ -18,8 +18,8 @@ public class HRExecutive extends BaseUser {
         super();
     }
 
-    public HRExecutive(int id, String name, String username, String password, String email, String phoneNumber, String position, UserType userType, List<WorkHistory> workHistory, double salary, List<Message> messages) {
-        super(id, ENTITY_NAME, name, username, password, email, phoneNumber, position, userType);
+    public HRExecutive(int id, String name, String username, String password, String email, String phoneNumber, String position, List<WorkHistory> workHistory, double salary, List<Message> messages) {
+        super(id, ENTITY_NAME, name, username, password, email, phoneNumber, position, UserType.HR_EXECUTIVE);
         this.workHistory = workHistory;
         this.salary = salary;
         this.messages = messages;

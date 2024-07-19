@@ -21,8 +21,8 @@ public class Engineer extends BaseUser {
         super();
     }
 
-    public Engineer(int id, String name, String username, String password, String email, String phoneNumber, String position, UserType userType, double salary, List<Task> assignedTasks, List<WorkHistory> workHistory, List<Message> messages) {
-        super(id, ENTITY_NAME, name, username, password, email, phoneNumber, position, userType);
+    public Engineer(int id, String name, String username, String password, String email, String phoneNumber, String position, double salary, List<Task> assignedTasks, List<WorkHistory> workHistory, List<Message> messages) {
+        super(id, ENTITY_NAME, name, username, password, email, phoneNumber, position, UserType.ENGINEER);
         this.salary = salary;
         this.assignedTasks = assignedTasks;
         this.workHistory = workHistory;

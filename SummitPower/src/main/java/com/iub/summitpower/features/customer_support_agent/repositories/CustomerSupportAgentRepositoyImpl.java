@@ -1,8 +1,7 @@
 package com.iub.summitpower.features.customer_support_agent.repositories;
 
-import com.iub.summitpower.core.BaseRepository;
+import com.iub.summitpower.core.repositories.BaseRepository;
 import com.iub.summitpower.core.entities.database.CustomerSupportAgent;
-import com.iub.summitpower.core.entities.database.MaintenanceEngineer;
 import com.iub.summitpower.helpers.DatabaseHelper;
 
 import java.util.Map;
