@@ -2,6 +2,7 @@ package com.iub.summitpower.features.senior_executive.services;
 
 import com.iub.summitpower.core.entities.database.BaseUser;
 import com.iub.summitpower.core.entities.fucntional.Project;
+import com.iub.summitpower.core.utills.RepositoryUtils;
 import com.iub.summitpower.features.business_analyst.repositories.BusinessAnalystRespositoyImpl;
 import com.iub.summitpower.features.customer_agent.repositories.CustomerAgentRepositoyImpl;
 import com.iub.summitpower.features.customer_support_agent.repositories.CustomerSupportAgentRepositoyImpl;
@@ -17,21 +18,8 @@ import com.iub.summitpower.features.senior_executive.repositories.SeniorExecutiv
 
 import java.util.List;
 
-public class SeniorExecutiveServicesImpl implements ISeniorExecutiveServices {
+public class SeniorExecutiveServicesImpl extends RepositoryUtils implements ISeniorExecutiveServices {
 
-    private final SeniorExecutiveRepositoryImpl seniorExecutiveRepository = new SeniorExecutiveRepositoryImpl();
-    private final HRExecutiveRepositoryImpl hrExecutiveRepository = new HRExecutiveRepositoryImpl();
-    private final SalesExecutiveRepositoryImpl salesExecutiveRepository = new SalesExecutiveRepositoryImpl();
-    private final BusinessAnalystRespositoyImpl businessAnalystRespositoy = new BusinessAnalystRespositoyImpl();
-    private final ProjectManagerRepositoyImpl projectManagerRepositoy = new ProjectManagerRepositoyImpl();
-    private final EngineerRepositoyImpl engineerRepositoy = new EngineerRepositoyImpl();
-    private final QualityAssuranceTesterRepositoyImpl qualityAssuranceTesterRepositoy = new QualityAssuranceTesterRepositoyImpl();
-    private final MaintenanceEngineerRepositoyImpl maintenanceEngineerRepositoy = new MaintenanceEngineerRepositoyImpl();
-    private final CustomerAgentRepositoyImpl customerAgentRepositoy = new CustomerAgentRepositoyImpl();
-    private final CustomerSupportAgentRepositoyImpl customerSupportAgentRepositoy = new CustomerSupportAgentRepositoyImpl();
-
-    private final ContractRepositoryImpl contractRepository = new ContractRepositoryImpl();
-    private final ProjectRepositoryImpl projectRepository = new ProjectRepositoryImpl();
 
     @Override
     public int numberOfCustomers() {
