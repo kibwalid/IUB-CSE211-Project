@@ -1,6 +1,7 @@
 package com.iub.summitpower.features.project_manager.repositories;
 
 import com.iub.summitpower.core.BaseRepository;
+import com.iub.summitpower.core.entities.database.BusinessAnalyst;
 import com.iub.summitpower.core.entities.database.ProjectManager;
 import com.iub.summitpower.helpers.DatabaseHelper;
 
@@ -29,5 +30,13 @@ public class ProjectManagerRepositoyImpl extends DatabaseHelper<String, ProjectM
     @Override
     public int countAll() {
         return count();
+    }
+
+    public double getTotalSalaryGiven() {
+        double total = 0;
+        for (ProjectManager manager : getAllData().values()) {
+            total += manager.getSalary();
+        }
+        return total;
     }
 }

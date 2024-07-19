@@ -2,6 +2,7 @@ package com.iub.summitpower.features.customer_support_agent.repositories;
 
 import com.iub.summitpower.core.BaseRepository;
 import com.iub.summitpower.core.entities.database.CustomerSupportAgent;
+import com.iub.summitpower.core.entities.database.MaintenanceEngineer;
 import com.iub.summitpower.helpers.DatabaseHelper;
 
 import java.util.Map;
@@ -29,5 +30,13 @@ public class CustomerSupportAgentRepositoyImpl extends DatabaseHelper<String, Cu
     @Override
     public int countAll() {
         return count();
+    }
+
+    public double getTotalSalaryGiven() {
+        double total = 0;
+        for (CustomerSupportAgent supportAgent : getAllData().values()) {
+            total += supportAgent.getSalary();
+        }
+        return total;
     }
 }

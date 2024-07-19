@@ -2,6 +2,7 @@ package com.iub.summitpower.features.maintenance_engineer.repositories;
 
 import com.iub.summitpower.core.BaseRepository;
 import com.iub.summitpower.core.entities.database.MaintenanceEngineer;
+import com.iub.summitpower.core.entities.database.QualityAssuranceTester;
 import com.iub.summitpower.helpers.DatabaseHelper;
 
 import java.util.Map;
@@ -29,5 +30,13 @@ public class MaintenanceEngineerRepositoyImpl extends DatabaseHelper<String, Mai
     @Override
     public int countAll() {
         return count();
+    }
+
+    public double getTotalSalaryGiven() {
+        double total = 0;
+        for (MaintenanceEngineer maintenanceEngineer : getAllData().values()) {
+            total += maintenanceEngineer.getSalary();
+        }
+        return total;
     }
 }

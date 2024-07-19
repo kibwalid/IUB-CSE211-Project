@@ -30,4 +30,12 @@ public class CustomerAgentRepositoyImpl extends DatabaseHelper<String, CustomerA
     public int countAll() {
         return count();
     }
+
+    public int getActiveCustomers() {
+        return getAll().values()
+                .stream().
+                filter(customer -> !customer.getContracts().isEmpty())
+                .toList()
+                .size();
+    }
 }

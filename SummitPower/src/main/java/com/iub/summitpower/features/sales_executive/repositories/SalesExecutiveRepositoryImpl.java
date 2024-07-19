@@ -1,6 +1,7 @@
 package com.iub.summitpower.features.sales_executive.repositories;
 
 import com.iub.summitpower.core.BaseRepository;
+import com.iub.summitpower.core.entities.database.HRExecutive;
 import com.iub.summitpower.core.entities.database.SalesExecutive;
 import com.iub.summitpower.helpers.DatabaseHelper;
 
@@ -29,5 +30,13 @@ public class SalesExecutiveRepositoryImpl extends DatabaseHelper<String, SalesEx
     @Override
     public int countAll() {
         return count();
+    }
+
+    public double getTotalSalaryGiven() {
+        double total = 0;
+        for (SalesExecutive executive : getAllData().values()) {
+            total += executive.getSalary();
+        }
+        return total;
     }
 }

@@ -33,5 +33,13 @@ public class SeniorExecutiveRepositoryImpl extends DatabaseHelper<String, Senior
         return count();
     }
 
+    public double getTotalSalaryGiven() {
+        double total = 0;
+        for (SeniorExecutive executive : getAllData().values()) {
+            total += executive.getSalary();
+        }
+        return total;
+    }
+
 
 }

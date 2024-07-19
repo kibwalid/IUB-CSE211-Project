@@ -7,8 +7,8 @@ import java.util.List;
 public interface ISeniorExecutiveServices {
     int numberOfCustomers();
     int numberOfEmployees();
-    double totalCost();
-    double totalRevenue();
+    double totalCostByMonth();
+    double totalRevenueByMonth();
 
     List<Project> getActiveProjects();
 

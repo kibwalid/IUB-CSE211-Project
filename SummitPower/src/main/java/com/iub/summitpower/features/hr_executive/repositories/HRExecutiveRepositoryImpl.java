@@ -2,6 +2,7 @@ package com.iub.summitpower.features.hr_executive.repositories;
 
 import com.iub.summitpower.core.BaseRepository;
 import com.iub.summitpower.core.entities.database.HRExecutive;
+import com.iub.summitpower.core.entities.database.SeniorExecutive;
 import com.iub.summitpower.helpers.DatabaseHelper;
 
 import java.util.Map;
@@ -30,5 +31,13 @@ public class HRExecutiveRepositoryImpl extends DatabaseHelper<String, HRExecutiv
     @Override
     public int countAll() {
         return count();
+    }
+
+    public double getTotalSalaryGiven() {
+        double total = 0;
+        for (HRExecutive executive : getAllData().values()) {
+            total += executive.getSalary();
+        }
+        return total;
     }
 }

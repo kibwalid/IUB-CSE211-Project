@@ -4,7 +4,13 @@ import com.iub.summitpower.core.enums.UserType;
 import com.iub.summitpower.core.entities.database.BaseUser;
 import com.iub.summitpower.core.utills.ViewControlUtils;
 import com.iub.summitpower.features.business_analyst.repositories.BusinessAnalystRespositoyImpl;
+import com.iub.summitpower.features.customer_agent.repositories.CustomerAgentRepositoyImpl;
+import com.iub.summitpower.features.customer_support_agent.repositories.CustomerSupportAgentRepositoyImpl;
+import com.iub.summitpower.features.engineer.repositories.EngineerRepositoyImpl;
 import com.iub.summitpower.features.hr_executive.repositories.HRExecutiveRepositoryImpl;
+import com.iub.summitpower.features.maintenance_engineer.repositories.MaintenanceEngineerRepositoyImpl;
+import com.iub.summitpower.features.project_manager.repositories.ProjectManagerRepositoyImpl;
+import com.iub.summitpower.features.quality_assurance_tester.repositories.QualityAssuranceTesterRepositoyImpl;
 import com.iub.summitpower.features.sales_executive.repositories.SalesExecutiveRepositoryImpl;
 import com.iub.summitpower.features.senior_executive.repositories.SeniorExecutiveRepositoryImpl;
 
@@ -16,6 +22,12 @@ public class LoginServicesImpl implements ILoginServices{
     private final HRExecutiveRepositoryImpl hrExecutiveRepository = new HRExecutiveRepositoryImpl();
     private final SalesExecutiveRepositoryImpl salesExecutiveRepository = new SalesExecutiveRepositoryImpl();
     private final BusinessAnalystRespositoyImpl businessAnalystRespositoy = new BusinessAnalystRespositoyImpl();
+    private final ProjectManagerRepositoyImpl projectManagerRepositoy = new ProjectManagerRepositoyImpl();
+    private final EngineerRepositoyImpl engineerRepositoy = new EngineerRepositoyImpl();
+    private final QualityAssuranceTesterRepositoyImpl qualityAssuranceTesterRepositoy = new QualityAssuranceTesterRepositoyImpl();
+    private final MaintenanceEngineerRepositoyImpl maintenanceEngineerRepositoy = new MaintenanceEngineerRepositoyImpl();
+    private final CustomerAgentRepositoyImpl customerAgentRepositoy = new CustomerAgentRepositoyImpl();
+    private final CustomerSupportAgentRepositoyImpl customerSupportAgentRepositoy = new CustomerSupportAgentRepositoyImpl();
 
     @Override
     public boolean login(String username, String password, UserType userType) throws Exception {
@@ -37,23 +49,17 @@ public class LoginServicesImpl implements ILoginServices{
             case BUSINESS_ANALYST:
                 return businessAnalystRespositoy.getById(username);
             case PROJECT_MANAGER:
-                System.out.println("User is a Project Manager");
-                break;
+                return projectManagerRepositoy.getById(username);
             case ENGINEER:
-                System.out.println("User is an Engineer");
-                break;
+                return engineerRepositoy.getById(username);
             case QUALITY_ASSURANCE_TESTER:
-                System.out.println("User is a Quality Assurance Tester");
-                break;
+                return qualityAssuranceTesterRepositoy.getById(username);
             case MAINTENANCE_ENGINEER:
-                System.out.println("User is a Maintenance Engineer");
-                break;
+                return maintenanceEngineerRepositoy.getById(username);
             case CUSTOMER_AGENT:
-                System.out.println("User is a Customer Agent");
-                break;
+                return customerAgentRepositoy.getById(username);
             case CUSTOMER_SUPPORT_AGENT:
-                System.out.println("User is a Customer Support Agent");
-                break;
+                return customerSupportAgentRepositoy.getById(username);
             default:
                 ViewControlUtils.showAlert("User type is not defined. Please select user type and try again!");
                 break;

@@ -2,6 +2,7 @@ package com.iub.summitpower.core.entities.fucntional;
 
 import com.iub.summitpower.core.entities.database.CustomerAgent;
 
+import java.time.Duration;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -39,6 +40,12 @@ public class Contract extends BaseFunctional {
         this.kwPerMonth = kwPerMonth;
         this.totalContractAmount = totalContractAmount;
         this.isActive = isActive;
+    }
+
+
+    public double durationInMonthNumbers() {
+        Duration duration = Duration.between(this.contractStartDate, this.contractEndDate);
+        return (double) duration.getSeconds() / (60 * 60 * 24 * 30);
     }
 
     public String getName() {

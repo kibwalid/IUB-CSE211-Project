@@ -1,6 +1,7 @@
 package com.iub.summitpower.features.quality_assurance_tester.repositories;
 
 import com.iub.summitpower.core.BaseRepository;
+import com.iub.summitpower.core.entities.database.Engineer;
 import com.iub.summitpower.core.entities.database.ProjectManager;
 import com.iub.summitpower.core.entities.database.QualityAssuranceTester;
 import com.iub.summitpower.helpers.DatabaseHelper;
@@ -30,5 +31,13 @@ public class QualityAssuranceTesterRepositoyImpl extends DatabaseHelper<String, 
     @Override
     public int countAll() {
         return count();
+    }
+
+    public double getTotalSalaryGiven() {
+        double total = 0;
+        for (QualityAssuranceTester tester : getAllData().values()) {
+            total += tester.getSalary();
+        }
+        return total;
     }
 }
