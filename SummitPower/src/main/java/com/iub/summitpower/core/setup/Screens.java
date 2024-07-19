@@ -2,6 +2,7 @@ package com.iub.summitpower.core.setup;
 
 import com.iub.summitpower.features.senior_executive.AddEmployeeController;
 import com.iub.summitpower.features.senior_executive.DashboardController;
+import com.iub.summitpower.features.senior_executive.EmployeeListController;
 import com.iub.summitpower.features.unlogged.login.LoginController;
 import com.iub.summitpower.features.unlogged.splash.SplashController;
 import javafx.fxml.FXMLLoader;
@@ -14,7 +15,7 @@ public class Screens {
     public static Parent splashScreen,
             loginScreen,
             seniorExecutiveDashboard,
-            addEmployee;
+            addEmployee, viewAllEmployee;
 
 
     protected static void loadNavigationItems() throws IOException {
@@ -28,6 +29,8 @@ public class Screens {
                 .getResource("dashboard-view.fxml")));
         addEmployee = FXMLLoader.load(Objects.requireNonNull(AddEmployeeController.class
                 .getResource("add-employee-view.fxml")));
+        viewAllEmployee = FXMLLoader.load(Objects.requireNonNull(EmployeeListController.class
+                .getResource("employee-list-view.fxml")));
 
     }
 

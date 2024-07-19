@@ -7,7 +7,9 @@ import com.iub.summitpower.core.setup.Setup;
 import com.iub.summitpower.core.utills.ModelUtils;
 import com.iub.summitpower.core.utills.RepositoryUtils;
 import com.iub.summitpower.core.utills.ViewControlUtils;
+import com.iub.summitpower.features.senior_executive.models.EmployeeDTO;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -137,6 +139,68 @@ public class SeniorExecutiveServicesImpl extends RepositoryUtils implements ISen
             ViewControlUtils.showAlert("Signature must be the same as your first name.");
         }
 
+    }
+
+    @Override
+    public List<EmployeeDTO> getAllEmployeeTableData() {
+        List<EmployeeDTO> employeeDTOS = new ArrayList<>();
+
+        for(SeniorExecutive employee : seniorExecutiveRepository.getAllData().values()) {
+            employeeDTOS.add(new EmployeeDTO(employee.getName(), employee.getPosition(),
+                    employee.getUserType(), employee.getSalary(), employee.getPhoneNumber(),
+                    employee.getEmail(), employee.getUsername()));
+        }
+
+        for(HRExecutive employee : hrExecutiveRepository.getAllData().values()) {
+            employeeDTOS.add(new EmployeeDTO(employee.getName(), employee.getPosition(),
+                    employee.getUserType(), employee.getSalary(), employee.getPhoneNumber(),
+                    employee.getEmail(), employee.getUsername()));
+        }
+
+        for(BusinessAnalyst employee : businessAnalystRespositoy.getAllData().values()) {
+            employeeDTOS.add(new EmployeeDTO(employee.getName(), employee.getPosition(),
+                    employee.getUserType(), employee.getSalary(), employee.getPhoneNumber(),
+                    employee.getEmail(), employee.getUsername()));
+        }
+
+        for(ProjectManager employee : projectManagerRepositoy.getAllData().values()) {
+            employeeDTOS.add(new EmployeeDTO(employee.getName(), employee.getPosition(),
+                    employee.getUserType(), employee.getSalary(), employee.getPhoneNumber(),
+                    employee.getEmail(), employee.getUsername()));
+        }
+
+        for(QualityAssuranceTester employee : qualityAssuranceTesterRepositoy.getAllData().values()) {
+            employeeDTOS.add(new EmployeeDTO(employee.getName(), employee.getPosition(),
+                    employee.getUserType(), employee.getSalary(), employee.getPhoneNumber(),
+                    employee.getEmail(), employee.getUsername()));
+        }
+
+        for(SalesExecutive employee : salesExecutiveRepository.getAllData().values()) {
+            employeeDTOS.add(new EmployeeDTO(employee.getName(), employee.getPosition(),
+                    employee.getUserType(), employee.getSalary(), employee.getPhoneNumber(),
+                    employee.getEmail(), employee.getUsername()));
+        }
+
+        for(Engineer employee : engineerRepositoy.getAllData().values()) {
+            employeeDTOS.add(new EmployeeDTO(employee.getName(), employee.getPosition(),
+                    employee.getUserType(), employee.getSalary(), employee.getPhoneNumber(),
+                    employee.getEmail(), employee.getUsername()));
+        }
+
+        for(MaintenanceEngineer employee : maintenanceEngineerRepositoy.getAllData().values()) {
+            employeeDTOS.add(new EmployeeDTO(employee.getName(), employee.getPosition(),
+                    employee.getUserType(), employee.getSalary(), employee.getPhoneNumber(),
+                    employee.getEmail(), employee.getUsername()));
+        }
+
+        for(CustomerSupportAgent employee : customerSupportAgentRepositoy.getAllData().values()) {
+            employeeDTOS.add(new EmployeeDTO(employee.getName(), employee.getPosition(),
+                    employee.getUserType(), employee.getSalary(), employee.getPhoneNumber(),
+                    employee.getEmail(), employee.getUsername()));
+        }
+
+
+        return employeeDTOS;
     }
 
 

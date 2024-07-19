@@ -49,7 +49,7 @@ public class DashboardController extends NavigationHelper {
 
     @FXML
     public void onAddEmployeeNavPressed() {
-        navigateToPage(addEmployeLabel, Screens.addEmployee);
+        navigateToPage(addEmployeLabel, Screens.viewAllEmployee);
     }
 
 }
