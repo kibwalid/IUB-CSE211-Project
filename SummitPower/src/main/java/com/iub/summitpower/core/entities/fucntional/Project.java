@@ -14,7 +14,7 @@ public class Project extends BaseFunctional {
         super();
     }
 
-    public Project(int id, String name, String description, List<Task> tasks, List<Engineer> assignedEngineers, LocalDateTime deadline, Status status) {
+    public Project(int id, String name, String description, List<Task> tasks, List<Engineer> assignedEngineers, LocalDateTime deadline, double cost, Status status) {
         super(id, ENTITY_NAME);
         this.name = name;
         this.description = description;
@@ -22,6 +22,7 @@ public class Project extends BaseFunctional {
         this.assignedEngineers = assignedEngineers;
         this.deadline = deadline;
         this.status = status;
+        this.cost = cost;
     }
 
     private String name;
@@ -30,7 +31,16 @@ public class Project extends BaseFunctional {
     private List<Engineer> assignedEngineers;
     private LocalDateTime deadline;
     private Status status;
+    private double cost;
 
+
+    public double getCost() {
+        return cost;
+    }
+
+    public void setCost(double cost) {
+        this.cost = cost;
+    }
 
     public List<Engineer> getAssignedEngineers() {
         return assignedEngineers;
