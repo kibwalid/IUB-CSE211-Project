@@ -2,7 +2,9 @@ package com.iub.summitpower.features.senior_executive;
 
 import java.io.IOException;
 
+import com.iub.summitpower.core.enums.UserType;
 import com.iub.summitpower.core.setup.Screens;
+import com.iub.summitpower.core.setup.Setup;
 import com.iub.summitpower.core.utills.ViewControlUtils;
 import com.iub.summitpower.features.senior_executive.models.EmployeeDTO;
 import com.iub.summitpower.features.senior_executive.models.EmployeeDetailsDTO;
@@ -76,7 +78,11 @@ public class EmployeeDetailsViewController extends NavigationHelper {
                 if(delete) {
                     SeniorExecutiveServicesImpl.selectedEmployeeBySE = null;
                     Screens.refreshScreens();
-                    navigateToPage(endContractButton, Screens.seniorExecutiveViewAllEmployee);
+                    if(Setup.currentUser.getUserType() == UserType.SENIOR_EXECUTIVE) {
+                        navigateToPage(endContractButton, Screens.seniorExecutiveViewAllEmployee);
+                    } else {
+                        navigateToPage(endContractButton, Screens.hrEmployeeList);
+                    }
                 }
             } else {
                 ViewControlUtils.showAlert("There has been an error. Please contact Khalid!");
