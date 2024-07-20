@@ -1,9 +1,7 @@
 package com.iub.summitpower.features.senior_executive;
 
 import java.io.IOException;
-import java.net.URL;
 import java.util.Objects;
-import java.util.ResourceBundle;
 
 import com.iub.summitpower.core.setup.Screens;
 import com.iub.summitpower.core.setup.Setup;
@@ -88,7 +86,7 @@ public class SideNavViewController extends NavigationHelper {
     public void onAddEmployeeNavPressed(MouseEvent event) throws IOException {
         Setup.currentNavPage = addEmployeLabel.getText();
         Screens.refreshScreens();
-        navigateToPage(dashboardLabel, Screens.addEmployee);
+        navigateToPage(dashboardLabel, Screens.seniorExecutiveAddEmployee);
     }
 
     @FXML
@@ -109,7 +107,7 @@ public class SideNavViewController extends NavigationHelper {
     public void onEmployeeListNavPressed(MouseEvent event) throws IOException {
         Setup.currentNavPage = employeeListLabel.getText();
         Screens.refreshScreens();
-        navigateToPage(dashboardLabel, Screens.viewAllEmployee);
+        navigateToPage(dashboardLabel, Screens.seniorExecutiveViewAllEmployee);
     }
 
     @FXML

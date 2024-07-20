@@ -2,6 +2,7 @@ package com.iub.summitpower.features.senior_executive;
 
 import com.iub.summitpower.core.enums.UserType;
 import com.iub.summitpower.core.setup.Screens;
+import com.iub.summitpower.core.setup.Setup;
 import com.iub.summitpower.features.senior_executive.services.IUserServices;
 import com.iub.summitpower.features.senior_executive.services.SeniorExecutiveServicesImpl;
 import com.iub.summitpower.helpers.NavigationHelper;
@@ -90,7 +91,11 @@ public class AddEmployeeController extends NavigationHelper {
 
         boolean register = userServices.registerEmployee(name, username, password, email, phone, position, salary, selectedUserType);
         if(register) {
-            navigateToPage(registerButton, Screens.seniorExecutiveDashboard);
+            if(Setup.currentUser.getUserType() == UserType.SENIOR_EXECUTIVE) {
+                navigateToPage(registerButton, Screens.seniorExecutiveViewAllEmployee);
+            } else {
+                navigateToPage(registerButton, Screens.hrEmployeeList);
+            }
         }
     }
 

@@ -1,8 +1,6 @@
 package com.iub.summitpower.features.senior_executive;
 
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 
 import com.iub.summitpower.core.setup.Screens;
 import com.iub.summitpower.core.utills.ViewControlUtils;
@@ -67,7 +65,7 @@ public class EmployeeDetailsViewController extends NavigationHelper {
 
     @FXML
     public void onBackButton(ActionEvent event) {
-        navigateToPage(goBackButton, Screens.viewAllEmployee);
+        navigateToPage(goBackButton, Screens.seniorExecutiveViewAllEmployee);
     }
 
     public void onEndContractClicked(ActionEvent event) throws IOException {
@@ -78,7 +76,7 @@ public class EmployeeDetailsViewController extends NavigationHelper {
                 if(delete) {
                     SeniorExecutiveServicesImpl.selectedEmployeeBySE = null;
                     Screens.refreshScreens();
-                    navigateToPage(endContractButton, Screens.viewAllEmployee);
+                    navigateToPage(endContractButton, Screens.seniorExecutiveViewAllEmployee);
                 }
             } else {
                 ViewControlUtils.showAlert("There has been an error. Please contact Khalid!");

@@ -1,12 +1,9 @@
 package com.iub.summitpower.features.senior_executive;
 
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 
 import com.iub.summitpower.core.enums.UserType;
 import com.iub.summitpower.core.setup.Screens;
-import com.iub.summitpower.core.setup.Setup;
 import com.iub.summitpower.core.utills.ViewControlUtils;
 import com.iub.summitpower.features.senior_executive.models.EmployeeDTO;
 import com.iub.summitpower.features.senior_executive.services.IUserServices;
@@ -15,7 +12,6 @@ import com.iub.summitpower.helpers.NavigationHelper;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -78,7 +74,11 @@ public class EmployeeListController extends NavigationHelper {
         if(selected != null) {
             SeniorExecutiveServicesImpl.selectedEmployeeBySE = selected;
             Screens.refreshScreens();
-            navigateToPage(detailsButton, Screens.employeeDetails);
+            if(selected.getUserType() == UserType.SENIOR_EXECUTIVE) {
+                navigateToPage(detailsButton, Screens.seniorExecutiveEmployeeDetails);
+            } else {
+                navigateToPage(detailsButton, Screens.hrEmployeeDetails);
+            }
         } else {
             ViewControlUtils.showAlert("Please select an entry to view details!");
         }

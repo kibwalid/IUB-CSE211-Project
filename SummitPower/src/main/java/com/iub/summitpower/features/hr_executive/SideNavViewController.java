@@ -21,7 +21,7 @@ public class SideNavViewController extends NavigationHelper {
     public Button backButton;
 
     @FXML
-    public Label customerListLabel;
+    public Label paySalaryLabel;
 
     @FXML
     public Label dashboardLabel;
@@ -30,13 +30,13 @@ public class SideNavViewController extends NavigationHelper {
     public Label employeeListLabel;
 
     @FXML
-    public Label financialReportLabel;
+    public Label performanceReviewLabel;
 
     @FXML
-    public Label issuesLabel;
+    public Label sendMessageLabel;
 
     @FXML
-    public Label projectLabel;
+    public Label messagesLabel;
 
     @FXML
     public Label userNameLabel;
@@ -59,10 +59,10 @@ public class SideNavViewController extends NavigationHelper {
         dashboardLabel.setStyle(normalStyle);
         addEmployeLabel.setStyle(normalStyle);
         employeeListLabel.setStyle(normalStyle);
-        customerListLabel.setStyle(normalStyle);
-        projectLabel.setStyle(normalStyle);
-        issuesLabel.setStyle(normalStyle);
-        financialReportLabel.setStyle(normalStyle);
+        paySalaryLabel.setStyle(normalStyle);
+        messagesLabel.setStyle(normalStyle);
+        sendMessageLabel.setStyle(normalStyle);
+        performanceReviewLabel.setStyle(normalStyle);
 
         String boldStyle = "-fx-font-family: 'Calibri Bold';";
         if(Objects.equals(Setup.currentNavPage, dashboardLabel.getText())) {
@@ -71,14 +71,14 @@ public class SideNavViewController extends NavigationHelper {
             addEmployeLabel.setStyle(boldStyle);
         }  else if (Objects.equals(Setup.currentNavPage, employeeListLabel.getText())) {
             employeeListLabel.setStyle(boldStyle);
-        }  else if (Objects.equals(Setup.currentNavPage, customerListLabel.getText())) {
-            customerListLabel.setStyle(boldStyle);
-        }  else if (Objects.equals(Setup.currentNavPage, projectLabel.getText())) {
-            projectLabel.setStyle(boldStyle);
-        }  else if (Objects.equals(Setup.currentNavPage, issuesLabel.getText())) {
-            issuesLabel.setStyle(boldStyle);
-        }  else if (Objects.equals(Setup.currentNavPage, financialReportLabel.getText())) {
-            financialReportLabel.setStyle(boldStyle);
+        }  else if (Objects.equals(Setup.currentNavPage, paySalaryLabel.getText())) {
+            paySalaryLabel.setStyle(boldStyle);
+        }  else if (Objects.equals(Setup.currentNavPage, messagesLabel.getText())) {
+            messagesLabel.setStyle(boldStyle);
+        }  else if (Objects.equals(Setup.currentNavPage, sendMessageLabel.getText())) {
+            sendMessageLabel.setStyle(boldStyle);
+        }  else if (Objects.equals(Setup.currentNavPage, performanceReviewLabel.getText())) {
+            performanceReviewLabel.setStyle(boldStyle);
         }
     }
 
@@ -86,45 +86,45 @@ public class SideNavViewController extends NavigationHelper {
     public void onAddEmployeeNavPressed(MouseEvent event) throws IOException {
         Setup.currentNavPage = addEmployeLabel.getText();
         Screens.refreshScreens();
-        navigateToPage(dashboardLabel, Screens.addEmployee);
+        navigateToPage(dashboardLabel, Screens.hrAddEmployee);
     }
 
     @FXML
-    public void onCustomerListNavPressed(MouseEvent event) throws IOException {
-        Setup.currentNavPage = customerListLabel.getText();
+    public void onPaySalaryNavPressed(MouseEvent event) throws IOException {
+        Setup.currentNavPage = paySalaryLabel.getText();
         Screens.refreshScreens();
-        navigateToPage(dashboardLabel, Screens.seniorExecutiveDashboard);
+        navigateToPage(dashboardLabel, Screens.hrExecutiveDashboard);
     }
 
     @FXML
     public void onDashboardNavPressed(MouseEvent event) throws IOException {
         Setup.currentNavPage = dashboardLabel.getText();
         Screens.refreshScreens();
-        navigateToPage(dashboardLabel, Screens.seniorExecutiveDashboard);
+        navigateToPage(dashboardLabel, Screens.hrExecutiveDashboard);
     }
 
     @FXML
     public void onEmployeeListNavPressed(MouseEvent event) throws IOException {
         Setup.currentNavPage = employeeListLabel.getText();
         Screens.refreshScreens();
-        navigateToPage(dashboardLabel, Screens.viewAllEmployee);
+        navigateToPage(dashboardLabel, Screens.hrEmployeeList);
     }
 
     @FXML
-    public void onFinanceNavPressed(MouseEvent event) throws IOException {
-        Setup.currentNavPage = financialReportLabel.getText();
+    public void onPerformanceReviewNavPressed(MouseEvent event) throws IOException {
+        Setup.currentNavPage = performanceReviewLabel.getText();
         Screens.refreshScreens();
     }
 
     @FXML
-    public void onIssuesNavPressed(MouseEvent event) throws IOException {
-        Setup.currentNavPage = issuesLabel.getText();
+    public void onSendMessagesNavPressed(MouseEvent event) throws IOException {
+        Setup.currentNavPage = sendMessageLabel.getText();
         Screens.refreshScreens();
     }
 
     @FXML
-    public void onProjectNavPressed(MouseEvent event) throws IOException {
-        Setup.currentNavPage = projectLabel.getText();
+    public void onMessagesNavPressed(MouseEvent event) throws IOException {
+        Setup.currentNavPage = messagesLabel.getText();
         Screens.refreshScreens();
     }
 

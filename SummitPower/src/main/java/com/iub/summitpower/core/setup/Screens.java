@@ -13,7 +13,13 @@ public class Screens {
     public static Parent splashScreen,
             loginScreen,
             seniorExecutiveDashboard,
-            addEmployee, viewAllEmployee, employeeDetails;
+            seniorExecutiveAddEmployee,
+            seniorExecutiveViewAllEmployee,
+            seniorExecutiveEmployeeDetails,
+            hrExecutiveDashboard,
+            hrAddEmployee,
+            hrEmployeeList,
+            hrEmployeeDetails;
 
 
     protected static void loadNavigationItems() throws IOException {
@@ -26,16 +32,29 @@ public class Screens {
         FXMLLoader.load(Objects.requireNonNull(SideNavViewController.class
                 .getResource("side-nav-view.fxml")));
 
+        FXMLLoader.load(Objects.requireNonNull(com.iub.summitpower.features.hr_executive.SideNavViewController.class
+                .getResource("side-nav-view.fxml")));
+
+        // Senior Executive Screens
         seniorExecutiveDashboard = FXMLLoader.load(Objects.requireNonNull(DashboardController.class
                 .getResource("dashboard-view.fxml")));
-        addEmployee = FXMLLoader.load(Objects.requireNonNull(AddEmployeeController.class
+        seniorExecutiveAddEmployee = FXMLLoader.load(Objects.requireNonNull(AddEmployeeController.class
                 .getResource("add-employee-view.fxml")));
-        viewAllEmployee = FXMLLoader.load(Objects.requireNonNull(EmployeeListController.class
+        seniorExecutiveViewAllEmployee = FXMLLoader.load(Objects.requireNonNull(EmployeeListController.class
                 .getResource("employee-list-view.fxml")));
-
-        employeeDetails = FXMLLoader.load(Objects.requireNonNull(EmployeeDetailsViewController.class
+        seniorExecutiveEmployeeDetails = FXMLLoader.load(Objects.requireNonNull(EmployeeDetailsViewController.class
                 .getResource("employee-details-view.fxml")));
 
+
+        // HR Executive Screens
+        hrExecutiveDashboard = FXMLLoader.load(Objects.requireNonNull(com.iub.summitpower.features.hr_executive.DashboardController.class
+                .getResource("dashboard-view.fxml")));
+        hrAddEmployee = FXMLLoader.load(Objects.requireNonNull(com.iub.summitpower.features.hr_executive.DashboardController.class
+                .getResource("add-employee-view.fxml")));
+        hrEmployeeList = FXMLLoader.load(Objects.requireNonNull(com.iub.summitpower.features.hr_executive.DashboardController.class
+                .getResource("employee-list-view.fxml")));
+        hrEmployeeDetails = FXMLLoader.load(Objects.requireNonNull(com.iub.summitpower.features.hr_executive.DashboardController.class
+                .getResource("employee-details-view.fxml")));
 
     }
 
