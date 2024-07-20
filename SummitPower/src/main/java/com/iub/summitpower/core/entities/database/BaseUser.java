@@ -1,8 +1,10 @@
 package com.iub.summitpower.core.entities.database;
 
 import com.iub.summitpower.core.enums.UserType;
+import com.iub.summitpower.core.setup.Setup;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class BaseUser extends BaseEntity {
 
@@ -31,10 +33,26 @@ public class BaseUser extends BaseEntity {
         this.phoneNumber = phoneNumber;
         this.position = position;
         this.userType = userType;
+        this.addedBy = Setup.currentUser;
+    }
+
+    public String getPersonalInformation() {
+        return this.name + " (" + this.position + ") \n"
+                + this.userType + "\n\n"
+                + "Phone : " + this.phoneNumber + "\n"
+                + "Email : " + this.email + "\n";
+    }
+
+    public String getAuditInformation() {
+        return "This user has been added by " + this.name + " at " + this.getAddedAt().format(DateTimeFormatter.ISO_DATE);
+    }
+
+    public String getWorkHistoryAsText() {
+        return "Work history of this employee is classified information!";
     }
 
     public BaseUser getAddedBy() {
-        return addedBy;
+        return addedBy == null ? this : addedBy;
     }
 
     public void setAddedBy(BaseUser addedBy) {

@@ -7,6 +7,7 @@ import com.iub.summitpower.features.senior_executive.services.SeniorExecutiveSer
 import com.iub.summitpower.helpers.NavigationHelper;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
 
 public class DashboardController extends NavigationHelper {
 
@@ -32,8 +33,15 @@ public class DashboardController extends NavigationHelper {
     @FXML
     public Label addEmployeLabel;
 
+    @FXML
+    public Label employeeListLabel;
+    
+    @FXML
+    public Label customerListLabel;
+
 
     private final ISeniorExecutiveDashboardServices seniorExecutiveServices = new SeniorExecutiveServicesImpl();
+    
 
     @FXML
     public void initialize() {
@@ -41,15 +49,6 @@ public class DashboardController extends NavigationHelper {
         activeCustomerLabel.setText(String.valueOf(seniorExecutiveServices.numberOfCustomers()));
         monthlyCostLabel.setText(seniorExecutiveServices.totalCostByMonth() + "Tk");
         monthlyEarningLabel.setText(seniorExecutiveServices.totalRevenueByMonth() + "Tk");
-        if(Setup.currentUser != null) {
-            userNameLabel.setText(Setup.currentUser.getName());
-            userPositionLabel.setText(Setup.currentUser.getPosition());
-        }
-    }
-
-    @FXML
-    public void onAddEmployeeNavPressed() {
-        navigateToPage(addEmployeLabel, Screens.viewAllEmployee);
     }
 
 }

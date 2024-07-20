@@ -38,4 +38,8 @@ public class MaintenanceEngineerRepositoyImpl extends DatabaseHelper<String, Mai
         }
         return total;
     }
+
+    public boolean delete(String username) {
+        return deleteRecord(username);
+    }
 }

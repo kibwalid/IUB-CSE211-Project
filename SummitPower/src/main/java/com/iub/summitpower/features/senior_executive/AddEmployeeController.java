@@ -90,7 +90,6 @@ public class AddEmployeeController extends NavigationHelper {
 
         boolean register = userServices.registerEmployee(name, username, password, email, phone, position, salary, selectedUserType);
         if(register) {
-            Screens.refreshScreens();
             navigateToPage(registerButton, Screens.seniorExecutiveDashboard);
         }
     }

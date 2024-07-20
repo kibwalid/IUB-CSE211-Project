@@ -9,6 +9,9 @@ public class SeniorExecutive extends BaseUser{
 
     public final static String ENTITY_NAME = "SeniorExecutive";
 
+    private double salary;
+    private List<Message> messages;
+
     public SeniorExecutive() {
         super();
     }
@@ -20,8 +23,14 @@ public class SeniorExecutive extends BaseUser{
         this.messages = messages;
     }
 
-    private double salary;
-    private List<Message> messages;
+    @Override
+    public String getPersonalInformation() {
+        return this.getName() + " (" + this.getPosition() + ") \n"
+                + this.getUserType() + "\n" + "Salary : " + this.getSalary() + "\n---------\n"
+                + "Phone : " + this.getPhoneNumber() + "\n"
+                + "Email : " + this.getEmail() + "\n";
+    }
+
 
     public double getSalary() {
         return salary;

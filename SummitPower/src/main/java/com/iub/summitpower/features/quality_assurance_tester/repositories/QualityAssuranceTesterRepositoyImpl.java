@@ -38,4 +38,8 @@ public class QualityAssuranceTesterRepositoyImpl extends DatabaseHelper<String, 
         }
         return total;
     }
+
+    public boolean delete(String username) {
+        return deleteRecord(username);
+    }
 }

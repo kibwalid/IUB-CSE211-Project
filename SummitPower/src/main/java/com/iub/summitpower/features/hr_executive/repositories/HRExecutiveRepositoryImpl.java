@@ -39,4 +39,9 @@ public class HRExecutiveRepositoryImpl extends DatabaseHelper<String, HRExecutiv
         }
         return total;
     }
+
+
+    public boolean delete(String username) {
+        return deleteRecord(username);
+    }
 }

@@ -10,6 +10,7 @@ import java.util.List;
 public class Setup {
 
     public static BaseUser currentUser;
+    public static String currentNavPage = "Splash";
 
     public void injectDependencies() throws IOException {
         Database.initializeDatabase();

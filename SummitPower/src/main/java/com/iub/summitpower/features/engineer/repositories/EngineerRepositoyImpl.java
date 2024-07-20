@@ -38,4 +38,8 @@ public class EngineerRepositoyImpl extends DatabaseHelper<String, Engineer> impl
         }
         return total;
     }
+
+    public boolean delete(String username) {
+        return deleteRecord(username);
+    }
 }

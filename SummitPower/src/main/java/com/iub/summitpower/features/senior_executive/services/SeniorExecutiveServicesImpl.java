@@ -8,6 +8,7 @@ import com.iub.summitpower.core.utills.ModelUtils;
 import com.iub.summitpower.core.utills.RepositoryUtils;
 import com.iub.summitpower.core.utills.ViewControlUtils;
 import com.iub.summitpower.features.senior_executive.models.EmployeeDTO;
+import com.iub.summitpower.features.senior_executive.models.EmployeeDetailsDTO;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,6 +18,7 @@ import static com.iub.summitpower.core.enums.UserType.*;
 
 public class SeniorExecutiveServicesImpl extends RepositoryUtils implements ISeniorExecutiveDashboardServices, IUserServices {
 
+    public static EmployeeDTO selectedEmployeeBySE = null;
 
     @Override
     public int numberOfCustomers() {
@@ -201,6 +203,135 @@ public class SeniorExecutiveServicesImpl extends RepositoryUtils implements ISen
 
 
         return employeeDTOS;
+    }
+
+    @Override
+    public boolean deleteUser(String userName, UserType userType) {
+
+
+        if(Objects.equals(Setup.currentUser.getUsername(), userName)) {
+            ViewControlUtils.showAlert("You can not remove yourself from the company.");
+            return false;
+        }
+
+        switch (userType) {
+            case SENIOR_EXECUTIVE:
+                return seniorExecutiveRepository.delete(userName);
+
+            case HR_EXECUTIVE:
+                return hrExecutiveRepository.delete(userName);
+
+            case SALES_EXECUTIVE:
+                return salesExecutiveRepository.delete(userName);
+
+            case BUSINESS_ANALYST:
+                return businessAnalystRespositoy.delete(userName);
+
+            case PROJECT_MANAGER:
+                return projectManagerRepositoy.delete(userName);
+
+            case ENGINEER:
+                return engineerRepositoy.delete(userName);
+
+            case QUALITY_ASSURANCE_TESTER:
+                return qualityAssuranceTesterRepositoy.delete(userName);
+
+            case MAINTENANCE_ENGINEER:
+                return maintenanceEngineerRepositoy.delete(userName);
+
+            case CUSTOMER_SUPPORT_AGENT:
+                return customerSupportAgentRepositoy.delete(userName);
+
+            default:
+                ViewControlUtils.showAlert("User type is not defined. Please select user type and try again!");
+                break;
+        }
+        ViewControlUtils.showAlert("Unable to remove user! Please contact Khalid.");
+
+        return false;
+    }
+
+    @Override
+    public EmployeeDetailsDTO getSingleEmployee(String username, UserType type) {
+
+        if(Objects.equals(Setup.currentUser.getUsername(), username)) {
+            return new EmployeeDetailsDTO(Setup.currentUser.getPersonalInformation(),
+                    Setup.currentUser.getAuditInformation(),
+                    Setup.currentUser.getWorkHistoryAsText(),
+                    Setup.currentUser.getAddedBy().getName().split(" ")[0]);
+        }
+
+        switch (type) {
+            case SENIOR_EXECUTIVE:
+                SeniorExecutive seniorExecutive = seniorExecutiveRepository.getById(username);
+                return new EmployeeDetailsDTO(seniorExecutive.getPersonalInformation(),
+                        seniorExecutive.getAuditInformation(),
+                        seniorExecutive.getWorkHistoryAsText(),
+                        seniorExecutive.getAddedBy().getName().split(" ")[0]);
+
+            case HR_EXECUTIVE:
+                HRExecutive hrExecutive = hrExecutiveRepository.getById(username);
+                return new EmployeeDetailsDTO(hrExecutive.getPersonalInformation(),
+                        hrExecutive.getAuditInformation(),
+                        hrExecutive.getWorkHistoryAsText(),
+                        hrExecutive.getAddedBy().getName().split(" ")[0]);
+
+            case SALES_EXECUTIVE:
+                SalesExecutive salesExecutive = salesExecutiveRepository.getById(username);
+                return new EmployeeDetailsDTO(salesExecutive.getPersonalInformation(),
+                        salesExecutive.getAuditInformation(),
+                        salesExecutive.getWorkHistoryAsText(),
+                        salesExecutive.getAddedBy().getName().split(" ")[0]);
+
+            case BUSINESS_ANALYST:
+                BusinessAnalyst businessAnalyst = businessAnalystRespositoy.getById(username);
+                return new EmployeeDetailsDTO(businessAnalyst.getPersonalInformation(),
+                        businessAnalyst.getAuditInformation(),
+                        businessAnalyst.getWorkHistoryAsText(),
+                        businessAnalyst.getAddedBy().getName().split(" ")[0]);
+
+            case PROJECT_MANAGER:
+                ProjectManager projectManager = projectManagerRepositoy.getById(username);
+                return new EmployeeDetailsDTO(projectManager.getPersonalInformation(),
+                        projectManager.getAuditInformation(),
+                        projectManager.getWorkHistoryAsText(),
+                        projectManager.getAddedBy().getName().split(" ")[0]);
+
+            case ENGINEER:
+                Engineer engineer = engineerRepositoy.getById(username);
+                return new EmployeeDetailsDTO(engineer.getPersonalInformation(),
+                        engineer.getAuditInformation(),
+                        engineer.getWorkHistoryAsText(),
+                        engineer.getAddedBy().getName().split(" ")[0]);
+
+            case QUALITY_ASSURANCE_TESTER:
+                QualityAssuranceTester qualityAssuranceTester = qualityAssuranceTesterRepositoy.getById(username);
+                return new EmployeeDetailsDTO(qualityAssuranceTester.getPersonalInformation(),
+                        qualityAssuranceTester.getAuditInformation(),
+                        qualityAssuranceTester.getWorkHistoryAsText(),
+                        qualityAssuranceTester.getName().split(" ")[0]);
+
+            case MAINTENANCE_ENGINEER:
+                MaintenanceEngineer maintenanceEngineer = maintenanceEngineerRepositoy.getById(username);
+                return new EmployeeDetailsDTO(maintenanceEngineer.getPersonalInformation(),
+                        maintenanceEngineer.getAuditInformation(),
+                        maintenanceEngineer.getWorkHistoryAsText(),
+                        maintenanceEngineer.getAddedBy().getName().split(" ")[0]);
+
+            case CUSTOMER_SUPPORT_AGENT:
+                CustomerSupportAgent customerSupportAgent = customerSupportAgentRepositoy.getById(username);
+                return new EmployeeDetailsDTO(customerSupportAgent.getPersonalInformation(),
+                        customerSupportAgent.getAuditInformation(),
+                        customerSupportAgent.getWorkHistoryAsText(),
+                        customerSupportAgent.getAddedBy().getName().split(" ")[0]);
+
+            default:
+                ViewControlUtils.showAlert("User type is not defined. Please select user type and try again!");
+                break;
+        }
+        ViewControlUtils.showAlert("Unable to fetch user! Please contact Khalid.");
+
+        return null;
     }
 
 

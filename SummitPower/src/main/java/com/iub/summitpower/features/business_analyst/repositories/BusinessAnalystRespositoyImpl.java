@@ -38,4 +38,8 @@ public class BusinessAnalystRespositoyImpl extends DatabaseHelper<String, Busine
         }
         return total;
     }
+
+    public boolean delete(String username) {
+        return deleteRecord(username);
+    }
 }

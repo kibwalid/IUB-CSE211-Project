@@ -38,4 +38,8 @@ public class SalesExecutiveRepositoryImpl extends DatabaseHelper<String, SalesEx
         }
         return total;
     }
+
+    public boolean delete(String username) {
+        return deleteRecord(username);
+    }
 }

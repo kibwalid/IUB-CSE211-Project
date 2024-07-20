@@ -41,5 +41,9 @@ public class SeniorExecutiveRepositoryImpl extends DatabaseHelper<String, Senior
         return total;
     }
 
+    public boolean delete(String username) {
+        return deleteRecord(username);
+    }
+
 
 }

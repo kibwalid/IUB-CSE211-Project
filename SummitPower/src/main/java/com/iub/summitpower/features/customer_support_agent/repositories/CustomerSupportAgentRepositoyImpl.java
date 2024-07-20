@@ -38,4 +38,8 @@ public class CustomerSupportAgentRepositoyImpl extends DatabaseHelper<String, Cu
         }
         return total;
     }
+
+    public boolean delete(String username) {
+        return deleteRecord(username);
+    }
 }

@@ -26,6 +26,7 @@ public class LoginServicesImpl extends RepositoryUtils implements ILoginServices
         BaseUser user = getIfUserExists(username, userType);
         if(user != null && passwordMatches(user, password)) {
             Setup.currentUser = user;
+            Setup.currentNavPage = "Dashboard";
             return true;
         }
         throw new Exception("Username and password does not match! Please try again or contact our customer support agents.");

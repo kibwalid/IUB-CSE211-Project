@@ -4,8 +4,6 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
@@ -13,70 +11,16 @@
 <AnchorPane prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.iub.summitpower.features.senior_executive.EmployeeListController">
 
     <children>
-        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#6f77d6" height="720.0" stroke="#1e7faa" strokeType="INSIDE" width="296.0" />
-        <ImageView fitHeight="70.0" fitWidth="156.0" layoutX="23.0" layoutY="516.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@../unlogged/login/logo.png" />
-            </image>
-        </ImageView>
 
-        <Button fx:id="backButton" layoutX="23.0" layoutY="594.0" prefHeight="31.0" prefWidth="223.0" style="-fx-font-family: 'Calibri'; -fx-font-size: 14; -fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 2px;" text="← Logout" textFill="WHITE">
-            <font>
-                <Font name="System Bold" size="12.0" />
-            </font></Button>
+        <fx:include source="side-nav-view.fxml" />
+
+
+
         <Label layoutX="316.0" layoutY="36.0" prefHeight="44.0" prefWidth="314.0" style="-fx-font-family: 'Calibri';" text="Employee List">
             <font>
                 <Font size="38.0" />
             </font></Label>
-        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="2.0" layoutY="105.0" stroke="WHITE" strokeType="INSIDE" width="296.0" />
-        <Label fx:id="userNameLabel" layoutX="23.0" layoutY="36.0" style="-fx-font-family: 'Calibri';" text="Khalid Ibnul Walid" textFill="WHITE">
-            <font>
-                <Font size="28.0" />
-            </font>
-        </Label>
-        <Label fx:id="userPositionLabel" layoutX="23.0" layoutY="69.0" style="-fx-font-family: 'Calibri';" text="Senior Executive" textFill="WHITE">
-            <font>
-                <Font size="18.0" />
-            </font>
-        </Label>
-        <Label layoutX="33.0" layoutY="162.0" style="-fx-font-family: 'Calibri';" text="Dashboard" textFill="WHITE">
-            <font>
-                <Font size="18.0" />
-            </font>
-        </Label>
-        <Label layoutX="33.0" layoutY="203.0" style="-fx-font-family: 'Calibri';" text="Add Employee" textFill="WHITE">
-            <font>
-                <Font size="18.0" />
-            </font>
-        </Label>
-        <Label layoutX="33.0" layoutY="243.0" style="-fx-font-family: 'Calibri Bold';" text="Employee List" textFill="WHITE">
-            <font>
-                <Font size="18.0" />
-            </font>
-        </Label>
-        <Label layoutX="33.0" layoutY="284.0" style="-fx-font-family: 'Calibri';" text="Customer List" textFill="WHITE">
-            <font>
-                <Font size="18.0" />
-            </font>
-        </Label>
-        <Label layoutX="34.0" layoutY="321.0" style="-fx-font-family: 'Calibri';" text="Projects" textFill="WHITE">
-            <font>
-                <Font size="18.0" />
-            </font>
-        </Label>
-        <Label layoutX="34.0" layoutY="362.0" style="-fx-font-family: 'Calibri';" text="Issues" textFill="WHITE">
-            <font>
-                <Font size="18.0" />
-            </font>
-        </Label>
-        <Label layoutX="34.0" layoutY="402.0" style="-fx-font-family: 'Calibri';" text="Finalcial Report" textFill="WHITE">
-            <font>
-                <Font size="18.0" />
-            </font>
-        </Label>
 
-        <Rectangle fill="WHITE" height="2.0" layoutY="669.0" smooth="false" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="200.0" />
-        <Label fx:id="label" layoutX="10.0" layoutY="684.0" text="Developed by Team Error 200" textFill="WHITE"> </Label>
         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="2.0" layoutX="296.0" layoutY="105.0" stroke="BLACK" strokeType="INSIDE" width="296.0" />
       <TableView fx:id="employeeTableView" layoutX="322.0" layoutY="173.0" prefHeight="516.0" prefWidth="926.0" style="-fx-background-color: white; -fx-background-opacity: 10%; -fx-border-color: transparent;">
          <columns>
@@ -91,7 +35,7 @@
          </columnResizePolicy>
       </TableView>
 
-        <Button fx:id="addEmployeeButton" layoutX="936.0" layoutY="116.0" onAction="#onAddEmployeeBtn" prefHeight="32.0" prefWidth="146.0" style="-fx-font-family: 'Calibri'; -fx-font-size: 16; -fx-background-color: black; -fx-border-color: black; -fx-border-width: 2px;" text="Details" textFill="WHITE" />
+        <Button fx:id="detailsButton" onAction="#onDetailsButtonClicked" layoutX="936.0" layoutY="116.0" prefHeight="32.0" prefWidth="146.0" style="-fx-font-family: 'Calibri'; -fx-font-size: 16; -fx-background-color: black; -fx-border-color: black; -fx-border-width: 2px;" text="Details" textFill="WHITE" />
         <Label fx:id="userPositionLabel1" layoutX="322.0" layoutY="122.0" style="-fx-font-family: 'Calibri';" text="- Please select an entry then press details button to check full information of the Employee">
             <font>
                 <Font name="System Italic" size="12.0" />
@@ -102,7 +46,7 @@
             <Font name="System Italic" size="12.0" />
          </font>
       </Label>
-      <Button fx:id="addEmployeeButton1" layoutX="1091.0" layoutY="115.0" onAction="#onAddEmployeeBtn" prefHeight="32.0" prefWidth="146.0" style="-fx-font-family: 'Calibri'; -fx-font-size: 16; -fx-background-color: #f53d56; -fx-border-color: #f53d56; -fx-border-width: 2px;" text="End Contract" textFill="WHITE" />
+      <Button fx:id="endContractButton" layoutX="1091.0" layoutY="115.0" onAction="#onEndContractClicked" prefHeight="32.0" prefWidth="146.0" style="-fx-font-family: 'Calibri'; -fx-font-size: 16; -fx-background-color: #f53d56; -fx-border-color: #f53d56; -fx-border-width: 2px;" text="End Contract" textFill="WHITE" />
 
     </children>
 </AnchorPane>

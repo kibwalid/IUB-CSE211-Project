@@ -4,6 +4,7 @@ import com.iub.summitpower.core.entities.fucntional.Message;
 import com.iub.summitpower.core.entities.fucntional.WorkHistory;
 import com.iub.summitpower.core.enums.UserType;
 
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 public class BusinessAnalyst extends BaseUser {
@@ -22,6 +23,23 @@ public class BusinessAnalyst extends BaseUser {
         this.workHistory = workHistory;
         this.salary = salary;
         this.messages = messages;
+    }
+
+    @Override
+    public String getWorkHistoryAsText() {
+        StringBuilder text = new StringBuilder();
+        for (WorkHistory work : this.workHistory) {
+            text.append(work.getWork()).append(" - ").append(work.getAddedAt().format(DateTimeFormatter.ISO_DATE)).append("\n");
+        }
+        return text.toString();
+    }
+
+    @Override
+    public String getPersonalInformation() {
+        return this.getName() + " (" + this.getPosition() + ") \n"
+                + this.getUserType() + "\n" + "Salary : " + this.getSalary() + "\n---------\n"
+                + "Phone : " + this.getPhoneNumber() + "\n"
+                + "Email : " + this.getEmail() + "\n";
     }
 
     public List<WorkHistory> getWorkHistory() {

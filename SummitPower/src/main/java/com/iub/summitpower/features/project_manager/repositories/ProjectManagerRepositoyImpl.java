@@ -38,4 +38,8 @@ public class ProjectManagerRepositoyImpl extends DatabaseHelper<String, ProjectM
         }
         return total;
     }
+
+    public boolean delete(String username) {
+        return deleteRecord(username);
+    }
 }
