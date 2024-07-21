@@ -1,7 +1,10 @@
 package com.iub.summitpower.features.hr_executive.services;
 
+import com.iub.summitpower.core.entities.database.BaseUser;
 import com.iub.summitpower.core.entities.fucntional.Message;
+import com.iub.summitpower.core.setup.Setup;
 import com.iub.summitpower.core.utills.RepositoryUtils;
+import com.iub.summitpower.core.utills.ViewControlUtils;
 import com.iub.summitpower.features.hr_executive.models.MessageDTO;
 
 import java.util.List;
@@ -76,6 +79,25 @@ public class HRExecutiveServicesImpl extends RepositoryUtils implements IMessage
     @Override
     public boolean giveReadStatus(MessageDTO selected) {
         return messageRepository.updateReadStatus(selected);
+    }
+
+    @Override
+    public Message validateAndProvideDTO(String subject, String message, BaseUser sendTo) {
+        if(subject.isEmpty()) {
+            ViewControlUtils.showAlert("Subject cannot be empty");
+            return null;
+        }
+        if(message.isEmpty()) {
+            ViewControlUtils.showAlert("Message body cannot be empty");
+            return null;
+        }
+
+        if(sendTo == null) {
+            ViewControlUtils.showAlert("Please select the person you want to send the message to!");
+            return null;
+        }
+
+        return new Message(0, subject, message, sendTo, Setup.currentUser, false);
     }
 
 

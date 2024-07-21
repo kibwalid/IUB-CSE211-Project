@@ -32,7 +32,7 @@ public class LoginServicesImpl extends RepositoryUtils implements ILoginServices
         throw new Exception("Username and password does not match! Please try again or contact our customer support agents.");
     }
 
-    private BaseUser getIfUserExists(String username, UserType userType) {
+    public BaseUser getIfUserExists(String username, UserType userType) {
         switch (userType) {
             case SENIOR_EXECUTIVE:
                 return seniorExecutiveRepository.getById(username);

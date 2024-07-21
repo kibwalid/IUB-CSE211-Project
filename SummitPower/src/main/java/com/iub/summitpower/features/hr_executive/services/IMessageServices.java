@@ -1,5 +1,6 @@
 package com.iub.summitpower.features.hr_executive.services;
 
+import com.iub.summitpower.core.entities.database.BaseUser;
 import com.iub.summitpower.core.entities.fucntional.Message;
 import com.iub.summitpower.features.hr_executive.models.MessageDTO;
 
@@ -20,4 +21,6 @@ public interface IMessageServices {
 
 
     boolean giveReadStatus(MessageDTO selected);
+
+    Message validateAndProvideDTO(String subject, String message, BaseUser sendTo);
 }
