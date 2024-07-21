@@ -22,7 +22,7 @@
             </font></Label>
 
         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="2.0" layoutX="296.0" layoutY="105.0" stroke="BLACK" strokeType="INSIDE" width="296.0" />
-      <TableView fx:id="employeeTableView" layoutX="322.0" layoutY="173.0" prefHeight="516.0" prefWidth="926.0" style="-fx-background-color: white; -fx-background-opacity: 10%; -fx-border-color: transparent;">
+      <TableView fx:id="employeeTableView" layoutX="322.0" layoutY="183.0" prefHeight="516.0" prefWidth="926.0" style="-fx-background-color: white; -fx-background-opacity: 10%; -fx-border-color: transparent;">
          <columns>
             <TableColumn fx:id="nameCol" editable="false" prefWidth="242.0" style="-fx-background-color: #8c9cda; -fx-border-bottom: 1px;" text="Name" />
             <TableColumn fx:id="positionCol" editable="false" prefWidth="145.0" style="-fx-background-color: #8c9cda; -fx-border-bottom: 1px;" text="Position" />
@@ -35,18 +35,19 @@
          </columnResizePolicy>
       </TableView>
 
-        <Button fx:id="detailsButton" onAction="#onDetailsButtonClicked" layoutX="936.0" layoutY="116.0" prefHeight="32.0" prefWidth="146.0" style="-fx-font-family: 'Calibri'; -fx-font-size: 16; -fx-background-color: black; -fx-border-color: black; -fx-border-width: 2px;" text="Details" textFill="WHITE" />
-        <Label fx:id="userPositionLabel1" layoutX="322.0" layoutY="122.0" style="-fx-font-family: 'Calibri';" text="- Please select an entry then press details button to check full information of the Employee">
+        <Button fx:id="detailsButton" layoutX="946.0" layoutY="146.0" onAction="#onDetailsButtonClicked" prefHeight="32.0" prefWidth="146.0" style="-fx-font-family: 'Calibri'; -fx-font-size: 16; -fx-background-color: black; -fx-border-color: black; -fx-border-width: 2px;" text="Details" textFill="WHITE" />
+        <Label fx:id="userPositionLabel1" layoutX="322.0" layoutY="132.0" style="-fx-font-family: 'Calibri';" text="- Please select an entry then press details button to check full information of the Employee">
             <font>
                 <Font name="System Italic" size="12.0" />
             </font>
         </Label>
-      <Label fx:id="userPositionLabel11" layoutX="322.0" layoutY="143.0" style="-fx-font-family: 'Calibri';" text="- To &quot;End Contract&quot; of an employee, select an entry then press &quot;End Contract&quot; Button">
+      <Label fx:id="userPositionLabel11" layoutX="322.0" layoutY="153.0" style="-fx-font-family: 'Calibri';" text="- To &quot;End Contract&quot; of an employee, select an entry then press &quot;End Contract&quot; Button">
          <font>
             <Font name="System Italic" size="12.0" />
          </font>
       </Label>
-      <Button fx:id="endContractButton" layoutX="1091.0" layoutY="115.0" onAction="#onEndContractClicked" prefHeight="32.0" prefWidth="146.0" style="-fx-font-family: 'Calibri'; -fx-font-size: 16; -fx-background-color: #f53d56; -fx-border-color: #f53d56; -fx-border-width: 2px;" text="End Contract" textFill="WHITE" />
+      <Button fx:id="endContractButton" layoutX="1101.0" layoutY="145.0" onAction="#onEndContractClicked" prefHeight="32.0" prefWidth="146.0" style="-fx-font-family: 'Calibri'; -fx-font-size: 16; -fx-background-color: #f53d56; -fx-border-color: #f53d56; -fx-border-width: 2px;" text="End Contract" textFill="WHITE" />
+      <Button fx:id="performanceReviewButton" layoutX="1004.0" layoutY="101.0" onAction="#onPerformanceReviewClick" prefHeight="32.0" prefWidth="243.0" style="-fx-font-family: 'Calibri'; -fx-font-size: 16; -fx-background-color: #8c9cda; -fx-border-color: #8c9cda; -fx-border-width: 2px;" text="Perform Performance Review" textFill="#070000" />
 
     </children>
 </AnchorPane>

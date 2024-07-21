@@ -29,8 +29,6 @@ public class SideNavViewController extends NavigationHelper {
     @FXML
     public Label employeeListLabel;
 
-    @FXML
-    public Label performanceReviewLabel;
 
     @FXML
     public Label sendMessageLabel;
@@ -62,7 +60,6 @@ public class SideNavViewController extends NavigationHelper {
         paySalaryLabel.setStyle(normalStyle);
         messagesLabel.setStyle(normalStyle);
         sendMessageLabel.setStyle(normalStyle);
-        performanceReviewLabel.setStyle(normalStyle);
 
         String boldStyle = "-fx-font-family: 'Calibri Bold';";
         if(Objects.equals(Setup.currentNavPage, dashboardLabel.getText())) {
@@ -77,8 +74,6 @@ public class SideNavViewController extends NavigationHelper {
             messagesLabel.setStyle(boldStyle);
         }  else if (Objects.equals(Setup.currentNavPage, sendMessageLabel.getText())) {
             sendMessageLabel.setStyle(boldStyle);
-        }  else if (Objects.equals(Setup.currentNavPage, performanceReviewLabel.getText())) {
-            performanceReviewLabel.setStyle(boldStyle);
         }
     }
 
@@ -110,11 +105,6 @@ public class SideNavViewController extends NavigationHelper {
         navigateToPage(employeeListLabel, Screens.hrEmployeeList);
     }
 
-    @FXML
-    public void onPerformanceReviewNavPressed(MouseEvent event) throws IOException {
-        Setup.currentNavPage = performanceReviewLabel.getText();
-        Screens.refreshScreens();
-    }
 
     @FXML
     public void onSendMessagesNavPressed(MouseEvent event) throws IOException {

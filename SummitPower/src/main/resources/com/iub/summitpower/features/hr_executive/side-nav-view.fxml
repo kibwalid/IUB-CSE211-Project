@@ -48,11 +48,6 @@
             <Font size="18.0" />
         </font>
     </Label>
-    <Label fx:id="performanceReviewLabel" layoutX="34.0" layoutY="321.0" onMouseClicked="#onPerformanceReviewNavPressed" style="-fx-font-family: 'Calibri';" text="Performance Review" textFill="WHITE">
-        <font>
-            <Font size="18.0" />
-        </font>
-    </Label>
     <Label fx:id="sendMessageLabel" layoutX="34.0" layoutY="362.0" onMouseClicked="#onSendMessagesNavPressed" style="-fx-font-family: 'Calibri';" text="Send Message" textFill="WHITE">
         <font>
             <Font size="18.0" />
