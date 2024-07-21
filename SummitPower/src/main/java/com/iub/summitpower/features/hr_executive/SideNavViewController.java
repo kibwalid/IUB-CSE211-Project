@@ -107,7 +107,7 @@ public class SideNavViewController extends NavigationHelper {
     public void onEmployeeListNavPressed(MouseEvent event) throws IOException {
         Setup.currentNavPage = employeeListLabel.getText();
         Screens.refreshScreens();
-        navigateToPage(dashboardLabel, Screens.hrEmployeeList);
+        navigateToPage(employeeListLabel, Screens.hrEmployeeList);
     }
 
     @FXML
@@ -120,12 +120,16 @@ public class SideNavViewController extends NavigationHelper {
     public void onSendMessagesNavPressed(MouseEvent event) throws IOException {
         Setup.currentNavPage = sendMessageLabel.getText();
         Screens.refreshScreens();
+        navigateToPage(sendMessageLabel, Screens.hrSendMessages);
+
     }
 
     @FXML
     public void onMessagesNavPressed(MouseEvent event) throws IOException {
         Setup.currentNavPage = messagesLabel.getText();
         Screens.refreshScreens();
+        navigateToPage(messagesLabel, Screens.hrMessages);
+
     }
 
 
