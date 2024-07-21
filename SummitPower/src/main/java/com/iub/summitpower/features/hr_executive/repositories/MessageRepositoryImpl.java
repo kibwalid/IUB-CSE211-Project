@@ -59,10 +59,14 @@ public class MessageRepositoryImpl extends DatabaseHelper<String, MessageHistory
         String receiver = message.getSentTo().getUsername();
 
         boolean success = false;
+
+        List<Message> placeHolderMessageList = new ArrayList<>();
+
         // message saving for sender
         if(isEntryNull(sender)) {
             message.setId(1);
-            MessageHistory messageHistory = new MessageHistory(0, List.of(message), List.of());
+            placeHolderMessageList.add(message);
+            MessageHistory messageHistory = new MessageHistory(0, placeHolderMessageList, new ArrayList<>());
             success = add(sender, messageHistory);
         } else {
             MessageHistory messageHistory = get(sender);
@@ -71,10 +75,12 @@ public class MessageRepositoryImpl extends DatabaseHelper<String, MessageHistory
             success = update(sender ,messageHistory);
         }
 
+        placeHolderMessageList = new ArrayList<>();
         // message saving for receiver
         if(isEntryNull(receiver)) {
             message.setId(1);
-            MessageHistory messageHistory = new MessageHistory(0, List.of(), List.of(message));
+            placeHolderMessageList.add(message);
+            MessageHistory messageHistory = new MessageHistory(0,  new ArrayList<>(), placeHolderMessageList);
             success = add(receiver, messageHistory) && success;
         } else {
             MessageHistory messageHistory = get(receiver);

@@ -91,6 +91,7 @@ public class AddEmployeeController extends NavigationHelper {
 
         boolean register = userServices.registerEmployee(name, username, password, email, phone, position, salary, selectedUserType);
         if(register) {
+            Screens.refreshScreens();
             if(Setup.currentUser.getUserType() == UserType.SENIOR_EXECUTIVE) {
                 navigateToPage(registerButton, Screens.seniorExecutiveViewAllEmployee);
             } else {
