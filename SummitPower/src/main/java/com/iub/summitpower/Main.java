@@ -1,5 +1,6 @@
 package com.iub.summitpower;
 
+import com.iub.summitpower.core.entities.fucntional.Message;
 import com.iub.summitpower.core.setup.Screens;
 import com.iub.summitpower.core.setup.Setup;
 import javafx.application.Application;
@@ -8,6 +9,8 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 import java.io.IOException;
+import java.util.List;
+import java.util.Objects;
 
 public class Main extends Application {
     @Override

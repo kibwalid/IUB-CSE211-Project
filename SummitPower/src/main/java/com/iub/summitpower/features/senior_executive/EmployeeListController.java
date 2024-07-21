@@ -20,14 +20,6 @@ public class EmployeeListController extends NavigationHelper {
 
 
     @FXML
-    public Button addEmployeeButton;
-
-    @FXML
-    public Button backButton;
-
-
-
-    @FXML
     public TableView<EmployeeDTO> employeeTableView;
 
 

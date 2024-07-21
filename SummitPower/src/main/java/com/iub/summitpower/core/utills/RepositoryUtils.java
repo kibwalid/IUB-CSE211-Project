@@ -5,6 +5,7 @@ import com.iub.summitpower.features.customer_agent.repositories.CustomerAgentRep
 import com.iub.summitpower.features.customer_support_agent.repositories.CustomerSupportAgentRepositoyImpl;
 import com.iub.summitpower.features.engineer.repositories.EngineerRepositoyImpl;
 import com.iub.summitpower.features.hr_executive.repositories.HRExecutiveRepositoryImpl;
+import com.iub.summitpower.features.hr_executive.repositories.MessageRepositoryImpl;
 import com.iub.summitpower.features.maintenance_engineer.repositories.MaintenanceEngineerRepositoyImpl;
 import com.iub.summitpower.features.project_manager.repositories.ProjectManagerRepositoyImpl;
 import com.iub.summitpower.features.project_manager.repositories.ProjectRepositoryImpl;
@@ -27,4 +28,5 @@ public abstract class RepositoryUtils {
 
     protected final ContractRepositoryImpl contractRepository = new ContractRepositoryImpl();
     protected final ProjectRepositoryImpl projectRepository = new ProjectRepositoryImpl();
+    protected final MessageRepositoryImpl messageRepository = new MessageRepositoryImpl();
 }

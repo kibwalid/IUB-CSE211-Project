@@ -74,7 +74,7 @@ public abstract class DatabaseHelper<K, V extends BaseEntity> {
 
     protected V get(K key) {
         Map<K, V> database = readDatabase();
-        return database.get(key);
+        return database.get(key) == null ? null : database.get(key);
     }
 
     protected Map<K, V> getAll() {

@@ -216,6 +216,10 @@ public class SeniorExecutiveServicesImpl extends RepositoryUtils implements ISen
 
         switch (userType) {
             case SENIOR_EXECUTIVE:
+                if(Setup.currentUser.getUserType() == HR_EXECUTIVE) {
+                    ViewControlUtils.showAlert("You can not remove an Executive from the company.");
+                    return false;
+                }
                 return seniorExecutiveRepository.delete(userName);
 
             case HR_EXECUTIVE:

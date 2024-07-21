@@ -9,7 +9,7 @@ import java.util.List;
 
 public class Setup {
 
-    public static BaseUser currentUser;
+    public static BaseUser currentUser = new BaseUser(true);
     public static String currentNavPage = "Splash";
 
     public void injectDependencies() throws IOException {
