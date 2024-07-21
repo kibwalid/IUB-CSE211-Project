@@ -6,7 +6,7 @@ import java.util.List;
 
 public class Budget<T> extends BaseFunctional {
 
-    public final static String ENTITY_NAME = "Contract";
+    public final static String ENTITY_NAME = "Budget";
 
     public Budget() {
         super();

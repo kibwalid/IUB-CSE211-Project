@@ -77,7 +77,7 @@ public class MessageViewController extends NavigationHelper {
 
     @FXML
     public void onOnlyUnreadClicked(ActionEvent event) {
-        for (MessageDTO messageDTO : messageTableView.getItems()) {
+        for (MessageDTO messageDTO : messageTableView.getItems().stream().toList()) {
             // remove all doesn't seem to work properly. shame on you javaFX
             messageTableView.getItems().remove(messageDTO);
         }
@@ -86,12 +86,14 @@ public class MessageViewController extends NavigationHelper {
 
     @FXML
     public void onSendReceivedToggleClicked(ActionEvent event) {
-        for (MessageDTO messageDTO : messageTableView.getItems()) {
+        for (MessageDTO messageDTO : messageTableView.getItems().stream().toList()) {
             messageTableView.getItems().remove(messageDTO);
         }
         if(toggleSendReceiveButton.getText().contains("Sent")) {
+            toggleSendReceiveButton.setText("View Received Messages");
             messageTableView.getItems().addAll(messageServices.getAllSentMessages());
         } else {
+            toggleSendReceiveButton.setText("View Sent Messages");
             messageTableView.getItems().addAll(messageServices.getAllReceivedMessages());
         }
     }

@@ -111,14 +111,14 @@ public class MessageRepositoryImpl extends DatabaseHelper<String, MessageHistory
 
     public List<Message> getReceivedMessages() {
         if(isEntryNull()) {
-            return List.of();
+            return new ArrayList<>();
         }
         return get(Setup.currentUser.getUsername()).getReceivedMessages();
     }
 
     public List<Message> getSentMessages() {
         if(isEntryNull()) {
-            return List.of();
+            return new ArrayList<>();
         }
         return get(Setup.currentUser.getUsername()).getSentMessages();
     }
