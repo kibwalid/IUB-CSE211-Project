@@ -21,6 +21,8 @@ public class Screens {
             seniorExecutiveEmployeeDetails,
             seniorExecutiveCustomerList,
             seniorExecutiveProjectList,
+            seniorExecutiveIssuesList,
+            seniorExecutiveFinReport,
 
             hrExecutiveDashboard,
             hrAddEmployee,
@@ -56,8 +58,12 @@ public class Screens {
                 .getResource("employee-details-view.fxml")));
         seniorExecutiveCustomerList = FXMLLoader.load(Objects.requireNonNull(CustomerListController.class
                 .getResource("customer-list-view.fxml")));
-        seniorExecutiveProjectList = FXMLLoader.load(Objects.requireNonNull(CustomerListController.class
+        seniorExecutiveProjectList = FXMLLoader.load(Objects.requireNonNull(ProjectViewController.class
                 .getResource("project-view.fxml")));
+        seniorExecutiveIssuesList = FXMLLoader.load(Objects.requireNonNull(IssuesViewController.class
+                .getResource("issues-view.fxml")));
+        seniorExecutiveFinReport = FXMLLoader.load(Objects.requireNonNull(FinReportController.class
+                .getResource("fin-report-view.fxml")));
 
         // HR Executive Screens
         hrExecutiveDashboard = FXMLLoader.load(Objects.requireNonNull(com.iub.summitpower.features.hr_executive.DashboardController.class

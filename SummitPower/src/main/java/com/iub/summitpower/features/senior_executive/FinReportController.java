@@ -5,42 +5,48 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.chart.BarChart;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 
-public class IssuesViewController {
-
-
-    @FXML
-    public Label activeIssuesLabel;
+public class FinReportController {
 
     @FXML
-    public TableColumn<?, ?> costToFixCol;
+    public Label activeContractLabel;
 
     @FXML
-    public TableColumn<?, ?> deadlineCol;
+    public TableColumn<?, ?> amountCol;
+
+    @FXML
+    public TableColumn<?, ?> companyName;
+
+    @FXML
+    public TableView<?> contractTableView;
 
     @FXML
     public Button detailsButton;
 
     @FXML
-    public Label fixedIssuesLabel;
+    public BarChart<?, ?> earningsByMonthBarChart;
 
     @FXML
-    public BarChart<?, ?> issuesByMonthBarChart;
+    public TableColumn<?, ?> kwPerMonthCol;
+
+    @FXML
+    public ComboBox<?> monthComboBox;
 
     @FXML
     public TableColumn<?, ?> nameCol;
 
     @FXML
-    public TableView<?> projectTableView;
-
-    @FXML
-    public TableColumn<?, ?> qaManagerCol;
-
-    @FXML
     public TableColumn<?, ?> statusCol;
+
+    @FXML
+    public Label totalRevenueLabel;
+
+    @FXML
+    public ComboBox<?> yearComboBox;
 
     @FXML
     public void onDetailsButtonClicked(ActionEvent event) {

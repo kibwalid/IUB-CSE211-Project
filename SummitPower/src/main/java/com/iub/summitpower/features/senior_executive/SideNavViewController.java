@@ -114,19 +114,23 @@ public class SideNavViewController extends NavigationHelper {
     public void onFinanceNavPressed(MouseEvent event) throws IOException {
         Setup.currentNavPage = financialReportLabel.getText();
         Screens.refreshScreens();
+        navigateToPage(dashboardLabel, Screens.seniorExecutiveFinReport);
+
     }
 
     @FXML
     public void onIssuesNavPressed(MouseEvent event) throws IOException {
         Setup.currentNavPage = issuesLabel.getText();
         Screens.refreshScreens();
+        navigateToPage(dashboardLabel, Screens.seniorExecutiveIssuesList);
+
     }
 
     @FXML
     public void onProjectNavPressed(MouseEvent event) throws IOException {
         Setup.currentNavPage = projectLabel.getText();
-        navigateToPage(dashboardLabel, Screens.seniorExecutiveProjectList);
         Screens.refreshScreens();
+        navigateToPage(dashboardLabel, Screens.seniorExecutiveProjectList);
     }
 
 
