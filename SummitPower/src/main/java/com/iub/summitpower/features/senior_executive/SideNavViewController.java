@@ -125,6 +125,7 @@ public class SideNavViewController extends NavigationHelper {
     @FXML
     public void onProjectNavPressed(MouseEvent event) throws IOException {
         Setup.currentNavPage = projectLabel.getText();
+        navigateToPage(dashboardLabel, Screens.seniorExecutiveProjectList);
         Screens.refreshScreens();
     }
 

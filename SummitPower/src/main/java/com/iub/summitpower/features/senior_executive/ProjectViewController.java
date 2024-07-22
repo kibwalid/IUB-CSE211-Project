@@ -1,6 +1,5 @@
 package com.iub.summitpower.features.senior_executive;
 
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -8,13 +7,17 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 
-public class CustomerListController {
+public class ProjectViewController {
+
 
     @FXML
-    public TableView<?> activeProjectsTableView;
+    public Label budgetAllocatedLabel;
 
     @FXML
     public TableColumn<?, ?> budgetCol;
+
+    @FXML
+    public Label budgetSpentLabel;
 
     @FXML
     public TableColumn<?, ?> deadlineCol;
@@ -23,22 +26,25 @@ public class CustomerListController {
     public Button detailsButton;
 
     @FXML
-    public Button detailsButton1;
+    public TableColumn<?, ?> nameCol;
 
     @FXML
-    public Label label;
+    public Label ongoingProjectLabel;
 
     @FXML
-    public TableColumn<?, ?> managerNameCol;
+    public TableColumn<?, ?> projectManagerCol;
 
     @FXML
-    public TableColumn<?, ?> projectNameCol;
+    public TableView<?> projectTableView;
 
     @FXML
-    public Label userPositionLabel1;
+    public TableColumn<?, ?> startDateCol;
 
     @FXML
-    public Label userPositionLabel11;
+    public TableColumn<?, ?> statusCol;
+
+    @FXML
+    public Label totalProjectLabel;
 
     @FXML
     public void onDetailsButtonClicked(ActionEvent event) {
