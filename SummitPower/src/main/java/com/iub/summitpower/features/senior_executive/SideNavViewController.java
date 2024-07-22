@@ -93,7 +93,7 @@ public class SideNavViewController extends NavigationHelper {
     public void onCustomerListNavPressed(MouseEvent event) throws IOException {
         Setup.currentNavPage = customerListLabel.getText();
         Screens.refreshScreens();
-        navigateToPage(dashboardLabel, Screens.seniorExecutiveDashboard);
+        navigateToPage(dashboardLabel, Screens.seniorExecutiveCustomerList);
     }
 
     @FXML

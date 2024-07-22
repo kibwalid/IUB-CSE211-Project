@@ -1,6 +1,7 @@
 package com.iub.summitpower.core.setup;
 
 import com.iub.summitpower.features.hr_executive.MessageViewController;
+import com.iub.summitpower.features.hr_executive.PerformanceReviewController;
 import com.iub.summitpower.features.hr_executive.SendMessageViewController;
 import com.iub.summitpower.features.senior_executive.*;
 import com.iub.summitpower.features.unlogged.login.LoginController;
@@ -18,11 +19,17 @@ public class Screens {
             seniorExecutiveAddEmployee,
             seniorExecutiveViewAllEmployee,
             seniorExecutiveEmployeeDetails,
+            seniorExecutiveCustomerList,
+
+
             hrExecutiveDashboard,
             hrAddEmployee,
             hrEmployeeList,
             hrEmployeeDetails,
-            hrMessages, hrSendMessages;
+            hrMessages,
+            hrSendMessages,
+            hrPerformanceReview;
+
 
 
     protected static void loadNavigationItems() throws IOException {
@@ -47,7 +54,8 @@ public class Screens {
                 .getResource("employee-list-view.fxml")));
         seniorExecutiveEmployeeDetails = FXMLLoader.load(Objects.requireNonNull(EmployeeDetailsViewController.class
                 .getResource("employee-details-view.fxml")));
-
+        seniorExecutiveCustomerList = FXMLLoader.load(Objects.requireNonNull(CustomerListController.class
+                .getResource("customer-list-view.fxml")));
 
         // HR Executive Screens
         hrExecutiveDashboard = FXMLLoader.load(Objects.requireNonNull(com.iub.summitpower.features.hr_executive.DashboardController.class
@@ -62,6 +70,8 @@ public class Screens {
                 .getResource("messages-view.fxml")));
         hrSendMessages = FXMLLoader.load(Objects.requireNonNull(SendMessageViewController.class
                 .getResource("send-message-view.fxml")));
+        hrPerformanceReview = FXMLLoader.load(Objects.requireNonNull(PerformanceReviewController.class
+                .getResource("performance-review-view.fxml")));
     }
 
 }

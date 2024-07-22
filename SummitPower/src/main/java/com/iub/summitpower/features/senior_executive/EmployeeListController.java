@@ -42,6 +42,8 @@ public class EmployeeListController extends NavigationHelper {
     public Button endContractButton;
     @FXML
     public Button detailsButton;
+    @FXML
+    public Button performanceReviewButton;
 
 
     private final IUserServices userServices = new SeniorExecutiveServicesImpl();
@@ -58,6 +60,17 @@ public class EmployeeListController extends NavigationHelper {
 
 
         employeeTableView.getItems().addAll(userServices.getAllEmployeeTableData());
+    }
+
+    public void onPerformanceReviewClick() throws IOException {
+        EmployeeDTO selected = employeeTableView.selectionModelProperty().get().getSelectedItem();
+        if(selected != null) {
+            SeniorExecutiveServicesImpl.selectedEmployeeBySE = selected;
+            Screens.refreshScreens();
+            navigateToPage(performanceReviewButton, Screens.hrPerformanceReview);
+        } else {
+            ViewControlUtils.showAlert("Please select an entry to view details!");
+        }
     }
 
 

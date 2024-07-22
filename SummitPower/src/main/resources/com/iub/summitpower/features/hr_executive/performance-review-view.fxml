@@ -24,7 +24,7 @@
             </font></Label>
 
         <Button fx:id="goBackButton" layoutX="1096.0" layoutY="42.0" onAction="#onBackButton" prefHeight="32.0" prefWidth="131.0" style="-fx-font-family: 'Calibri'; -fx-font-size: 16; -fx-background-color: white; -fx-border-color: black; -fx-border-width: 2px;" text="← Go back" />
-        <Button fx:id="endContractButton" layoutX="786.0" layoutY="630.0" onAction="#onEndContractClicked" prefHeight="32.0" prefWidth="462.0" style="-fx-font-family: 'Calibri'; -fx-font-size: 16; -fx-background-color: black; -fx-border-color: black; -fx-border-width: 2px;" text="Complete Review" textFill="WHITE" />
+        <Button fx:id="completeReviewButton" layoutX="786.0" layoutY="630.0" onAction="#onCompleteReviewClick" prefHeight="32.0" prefWidth="462.0" style="-fx-font-family: 'Calibri'; -fx-font-size: 16; -fx-background-color: black; -fx-border-color: black; -fx-border-width: 2px;" text="Complete Review" textFill="WHITE" />
 
 
         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="2.0" layoutX="296.0" layoutY="105.0" stroke="BLACK" strokeType="INSIDE" width="296.0" />
@@ -73,7 +73,7 @@
             <Font size="20.0" />
          </font>
       </Label>
-      <TextArea fx:id="employeeDetailsTextArea1" layoutX="785.0" layoutY="323.0" prefHeight="109.0" prefWidth="462.0" scrollLeft="1.0" scrollTop="20.0" style="-fx-background-color: white; -fx-border-color: black;" wrapText="true">
+      <TextArea fx:id="reasonForEvalTextArea" layoutX="785.0" layoutY="323.0" prefHeight="109.0" prefWidth="462.0" scrollLeft="1.0" scrollTop="20.0" style="-fx-background-color: white; -fx-border-color: black;" wrapText="true">
          <font>
             <Font size="14.0" />
          </font>
@@ -83,7 +83,7 @@
             <Font size="20.0" />
          </font>
       </Label>
-      <ComboBox layoutX="785.0" layoutY="176.0" prefHeight="32.0" prefWidth="454.0" style="-fx-background-color: white; -fx-border-color: black;" />
+      <ComboBox fx:id="incrementComboBox" layoutX="785.0" layoutY="176.0" prefHeight="32.0" prefWidth="454.0" style="-fx-background-color: white; -fx-border-color: black;" />
       <Label layoutX="785.0" layoutY="217.0" prefHeight="38.0" prefWidth="108.0" style="-fx-font-family: 'Calibri';" text="Current Salary :">
          <font>
             <Font size="16.0" />
@@ -94,12 +94,12 @@
             <Font size="16.0" />
          </font>
       </Label>
-      <Label layoutX="893.0" layoutY="224.0" prefHeight="25.0" prefWidth="87.0" style="-fx-font-family: 'Calibri';" text="1500 Tk">
+      <Label fx:id="currentSalaryLabel" layoutX="893.0" layoutY="224.0" prefHeight="25.0" prefWidth="87.0" style="-fx-font-family: 'Calibri';" text="1500 Tk">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <Label layoutX="947.0" layoutY="257.0" prefHeight="25.0" prefWidth="87.0" style="-fx-font-family: 'Calibri';" text="1500 Tk">
+      <Label fx:id="afterIncrementLabel" layoutX="947.0" layoutY="257.0" prefHeight="25.0" prefWidth="87.0" style="-fx-font-family: 'Calibri';" text="1500 Tk">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>

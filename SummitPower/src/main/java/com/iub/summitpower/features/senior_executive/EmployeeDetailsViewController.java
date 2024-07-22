@@ -67,7 +67,11 @@ public class EmployeeDetailsViewController extends NavigationHelper {
 
     @FXML
     public void onBackButton(ActionEvent event) {
-        navigateToPage(goBackButton, Screens.seniorExecutiveViewAllEmployee);
+        if(Setup.currentUser.getUserType() == UserType.SENIOR_EXECUTIVE) {
+            navigateToPage(goBackButton, Screens.seniorExecutiveViewAllEmployee);
+        } else {
+            navigateToPage(goBackButton, Screens.hrEmployeeList);
+        }
     }
 
     public void onEndContractClicked(ActionEvent event) throws IOException {
