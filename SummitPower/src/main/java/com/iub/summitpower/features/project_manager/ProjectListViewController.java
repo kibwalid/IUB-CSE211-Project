@@ -70,7 +70,7 @@ public class ProjectListViewController {
     }
 
     @FXML
-    void initialize() {
+    public void initialize() {
 
     }
 
