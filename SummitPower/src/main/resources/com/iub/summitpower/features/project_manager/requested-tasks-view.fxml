@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.iub.summitpower.features.hr_executive.RequestedTasksViewController">
+
+    <children>
+
+        <fx:include source="side-nav-view.fxml" />
+
+        <Label layoutX="316.0" layoutY="36.0" prefHeight="44.0" prefWidth="314.0" style="-fx-font-family: 'Calibri';" text="Requested Tasks">
+            <font>
+                <Font size="38.0" />
+            </font></Label>
+
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="2.0" layoutX="296.0" layoutY="105.0" stroke="BLACK" strokeType="INSIDE" width="296.0" />
+      <TableView fx:id="employeeTableView" layoutX="316.0" layoutY="200.0" prefHeight="312.0" prefWidth="658.0" style="-fx-background-color: white; -fx-background-opacity: 10%; -fx-border-color: transparent;">
+         <columns>
+            <TableColumn fx:id="nameCol" editable="false" prefWidth="191.0" style="-fx-background-color: #8c9cda; -fx-border-bottom: 1px;" text="Task Name" />
+            <TableColumn fx:id="positionCol" editable="false" prefWidth="169.0" style="-fx-background-color: #8c9cda; -fx-border-bottom: 1px;" text="Task Deadline" />
+            <TableColumn fx:id="phoneNumberCol" editable="false" prefWidth="146.0" style="-fx-background-color: #8c9cda; -fx-border-bottom: 1px;" text="Project Name" />
+            <TableColumn fx:id="salaryCol" editable="false" prefWidth="149.0" style="-fx-background-color: #8c9cda; -fx-border-bottom: 1px;" text="Project Deadline" />
+         </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TableView>
+      <Label layoutX="316.0" layoutY="111.0" prefHeight="44.0" prefWidth="330.0" style="-fx-font-family: 'Calibri';" text="- To see employee details please select a requested task and click Employee details button." wrapText="true">
+         <font>
+            <Font name="System Italic" size="12.0" />
+         </font>
+      </Label>
+      <Button fx:id="employeeDetailsButton" layoutX="822.0" layoutY="111.0" onAction="#onEmployeeDetailsClick" prefHeight="32.0" prefWidth="146.0" style="-fx-font-family: 'Calibri'; -fx-font-size: 16; -fx-background-color: #8c9cda; -fx-border-color: #8c9cda; -fx-border-width: 2px;" text="Employee Details" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="AQUA" height="177.0" layoutX="994.0" layoutY="217.0" stroke="AQUA" strokeType="INSIDE" width="252.0" />
+      <Label layoutX="994.0" layoutY="170.0" prefHeight="44.0" prefWidth="191.0" style="-fx-font-family: 'Calibri';" text="Employee Info">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#6d8dd3" height="177.0" layoutX="994.0" layoutY="217.0" stroke="AQUA" strokeType="INSIDE" width="6.0" />
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="990.0" layoutY="63.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../unlogged/login/logo.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="994.0" layoutY="403.0" prefHeight="58.0" prefWidth="252.0" style="-fx-font-family: 'Calibri';" text="A message to the employee will be sent upon approving or rejecting task. You are requested to provide an optional feedback to the Employee." wrapText="true">
+         <font>
+            <Font name="System Italic" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="994.0" layoutY="467.0" prefHeight="44.0" prefWidth="77.0" style="-fx-font-family: 'Calibri';" text="Signature">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="signatureTextField" layoutX="995.0" layoutY="511.0" prefHeight="70.0" prefWidth="252.0" />
+      <Label layoutX="316.0" layoutY="527.0" prefHeight="44.0" prefWidth="77.0" style="-fx-font-family: 'Calibri';" text="Feedback">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TextArea fx:id="feedbackTextArea" layoutX="316.0" layoutY="571.0" prefHeight="121.0" prefWidth="658.0" />
+      <Button fx:id="approveButton" layoutX="998.0" layoutY="608.0" onAction="#onApproveClick" prefHeight="32.0" prefWidth="252.0" style="-fx-font-family: 'Calibri'; -fx-font-size: 16; -fx-background-color: #8c9cda; -fx-border-color: #8c9cda; -fx-border-width: 2px;" text="Approve" />
+      <Button fx:id="rejectButton" layoutX="998.0" layoutY="654.0" onAction="#onRejectClick" prefHeight="32.0" prefWidth="252.0" style="-fx-font-family: 'Calibri'; -fx-font-size: 16; -fx-background-color: #f53d56; -fx-border-color: #f53d56; -fx-border-width: 2px;" text="Reject" textFill="WHITE" />
+      <Label fx:id="notSelectedLabel" layoutX="1016.0" layoutY="262.0" prefHeight="88.0" prefWidth="216.0" style="-fx-font-family: 'Calibri';" wrapText="true">
+         <font>
+            <Font name="System Italic" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="employeeNameLabel" layoutX="1016.0" layoutY="229.0" prefHeight="44.0" prefWidth="191.0" style="-fx-font-family: 'Calibri';" text="Khalid Ibnul">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </Label>
+      <Label fx:id="employeePositonLabel" layoutX="1016.0" layoutY="261.0" prefHeight="32.0" prefWidth="235.0" style="-fx-font-family: 'Calibri';" text="Senior Electrical Engineer">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="projectAssignedLabel" layoutX="1016.0" layoutY="323.0" prefHeight="32.0" prefWidth="131.0" style="-fx-font-family: 'Calibri';" text="Project Assigned :">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="projectAssignedNumLabel" layoutX="1151.0" layoutY="323.0" prefHeight="32.0" prefWidth="69.0" style="-fx-font-family: 'Calibri';" text="0">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font>
+      </Label>
+      <Label fx:id="taskCompletedLabel" layoutX="1016.0" layoutY="350.0" prefHeight="32.0" prefWidth="140.0" style="-fx-font-family: 'Calibri';" text="Tasks Completed :">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="taskCompletedNumLabel" layoutX="1161.0" layoutY="350.0" prefHeight="32.0" prefWidth="69.0" style="-fx-font-family: 'Calibri';" text="0">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font>
+      </Label>
+      <Label fx:id="employeeContactLabel" layoutX="1016.0" layoutY="285.0" prefHeight="32.0" prefWidth="235.0" style="-fx-font-family: 'Calibri';" text="+880-11914-21477">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Button fx:id="viewTaskDescriptionButton" layoutX="752.0" layoutY="155.0" onAction="#onViewTaskDescriptionClick" prefHeight="32.0" prefWidth="216.0" style="-fx-font-family: 'Calibri'; -fx-font-size: 16; -fx-background-color: #8c9cda; -fx-border-color: #8c9cda; -fx-border-width: 2px;" text="View Task Description" />
+      <Label layoutX="316.0" layoutY="154.0" prefHeight="44.0" prefWidth="330.0" style="-fx-font-family: 'Calibri';" text="- To see task details please select a requested task and click View Task Description button." wrapText="true">
+         <font>
+            <Font name="System Italic" size="12.0" />
+         </font>
+      </Label>
+
+    </children>
+</AnchorPane>
