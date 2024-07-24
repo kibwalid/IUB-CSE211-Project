@@ -1,6 +1,7 @@
 package com.iub.summitpower.core.entities.fucntional;
 
 import com.iub.summitpower.core.entities.database.Engineer;
+import com.iub.summitpower.core.entities.database.ProjectManager;
 import com.iub.summitpower.core.enums.Status;
 
 import java.time.LocalDateTime;
@@ -14,7 +15,7 @@ public class Project extends BaseFunctional {
         super();
     }
 
-    public Project(int id, String name, String description, List<Task> tasks, List<Engineer> assignedEngineers, LocalDateTime deadline, double cost, Status status) {
+    public Project(int id, String name, String description, List<Task> tasks, List<Engineer> assignedEngineers, LocalDateTime deadline, double cost, ProjectManager projectManager, Status status) {
         super(id, ENTITY_NAME);
         this.name = name;
         this.description = description;
@@ -23,6 +24,7 @@ public class Project extends BaseFunctional {
         this.deadline = deadline;
         this.status = status;
         this.cost = cost;
+        this.projectManager = projectManager;
     }
 
     private String name;
@@ -32,7 +34,16 @@ public class Project extends BaseFunctional {
     private LocalDateTime deadline;
     private Status status;
     private double cost;
+    private ProjectManager projectManager;
 
+
+    public ProjectManager getProjectManager() {
+        return projectManager;
+    }
+
+    public void setProjectManager(ProjectManager projectManager) {
+        this.projectManager = projectManager;
+    }
 
     public double getCost() {
         return cost;
