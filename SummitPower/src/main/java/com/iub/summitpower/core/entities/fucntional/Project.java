@@ -1,6 +1,11 @@
 package com.iub.summitpower.core.entities.fucntional;
 
+import com.iub.summitpower.core.entities.database.Engineer;
+import com.iub.summitpower.core.entities.database.ProjectManager;
 import com.iub.summitpower.core.enums.Status;
+
+import java.time.LocalDateTime;
+import java.util.List;
 
 public class Project extends BaseFunctional {
 
@@ -10,18 +15,75 @@ public class Project extends BaseFunctional {
         super();
     }
 
-    public Project(int id, String name, String description, Status status) {
+    public Project(int id, String name, String description, List<Task> tasks, List<Engineer> assignedEngineers, LocalDateTime deadline, double cost, ProjectManager projectManager, Status status) {
         super(id, ENTITY_NAME);
         this.name = name;
         this.description = description;
+        this.tasks = tasks;
+        this.assignedEngineers = assignedEngineers;
+        this.deadline = deadline;
         this.status = status;
+        this.cost = cost;
+        this.projectManager = projectManager;
     }
 
     private String name;
     private String description;
+    private List<Task> tasks;
+    private List<Engineer> assignedEngineers;
+    private LocalDateTime deadline;
     private Status status;
-    // TODO:: create project later
+    private double cost;
+    private ProjectManager projectManager;
 
+
+    public ProjectManager getProjectManager() {
+        return projectManager;
+    }
+
+    public void setProjectManager(ProjectManager projectManager) {
+        this.projectManager = projectManager;
+    }
+
+    public double getCost() {
+        return cost;
+    }
+
+    public void setCost(double cost) {
+        this.cost = cost;
+    }
+
+    public List<Engineer> getAssignedEngineers() {
+        return assignedEngineers;
+    }
+
+    public void setAssignedEngineers(List<Engineer> assignedEngineers) {
+        this.assignedEngineers = assignedEngineers;
+    }
+
+    public LocalDateTime getDeadline() {
+        return deadline;
+    }
+
+    public void setDeadline(LocalDateTime deadline) {
+        this.deadline = deadline;
+    }
+
+    public List<Task> getTasks() {
+        return tasks;
+    }
+
+    public void setTasks(List<Task> tasks) {
+        this.tasks = tasks;
+    }
+
+    public boolean removeTask(Task task) {
+        return this.tasks.remove(task);
+    }
+
+    public boolean addTask(Task task) {
+        return this.tasks.add(task);
+    }
 
     public Status getStatus() {
         return status;

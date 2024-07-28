@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.iub.summitpower.features.senior_executive.AddEmployeeController">
+
+    <children>
+
+
+        <fx:include source="side-nav-view.fxml" />
+
+        <Label layoutX="316.0" layoutY="36.0" prefHeight="44.0" prefWidth="314.0" style="-fx-font-family: 'Calibri';" text="Add Employee">
+            <font>
+                <Font size="38.0" />
+            </font></Label>
+
+
+        <Label layoutX="376.0" layoutY="261.0" text="Username">
+            <font>
+                <Font name="Calibri" size="16.0" />
+            </font></Label>
+        <PasswordField id="passwordField" fx:id="passwordTextField" layoutX="376.0" layoutY="357.0" prefHeight="31.0" prefWidth="361.0" style="-fx-background-radius: 0; -fx-border-radius: 0; -fx-border-color: black;" />
+        <Label layoutX="376.0" layoutY="330.0" text="Password">
+            <font>
+                <Font name="Calibri" size="16.0" />
+            </font></Label>
+        <TextField id="usernameField" fx:id="usernameField" layoutX="376.0" layoutY="287.0" prefHeight="31.0" prefWidth="361.0" style="-fx-background-radius: 0; -fx-border-radius: 0; -fx-border-color: black;" />
+        <ComboBox id="dropdownMenu" fx:id="employeeTypeDropdown" layoutX="794.0" layoutY="365.0" prefHeight="31.0" prefWidth="361.0" style="-fx-border-width: 1px; -fx-background-color: transparent; -fx-border-color: black;" />
+      <Label layoutX="793.0" layoutY="340.0" text="Employee Type">
+         <font>
+            <Font name="Calibri" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="376.0" layoutY="196.0" text="Full Name">
+         <font>
+            <Font name="Calibri" size="16.0" />
+         </font>
+      </Label>
+      <TextField id="usernameField" fx:id="nameTextField" layoutX="376.0" layoutY="222.0" prefHeight="31.0" prefWidth="361.0" style="-fx-background-radius: 0; -fx-border-radius: 0; -fx-border-color: black;" />
+      <Label layoutX="376.0" layoutY="399.0" text="Email">
+         <font>
+            <Font name="Calibri" size="16.0" />
+         </font>
+      </Label>
+      <TextField id="usernameField" fx:id="emailTextField" layoutX="376.0" layoutY="425.0" prefHeight="31.0" prefWidth="361.0" style="-fx-background-radius: 0; -fx-border-radius: 0; -fx-border-color: black;" />
+      <Label layoutX="376.0" layoutY="474.0" text="Phone Number">
+         <font>
+            <Font name="Calibri" size="16.0" />
+         </font>
+      </Label>
+      <TextField id="usernameField" fx:id="phoneNumberTextField" layoutX="376.0" layoutY="500.0" prefHeight="31.0" prefWidth="361.0" style="-fx-background-radius: 0; -fx-border-radius: 0; -fx-border-color: black;" />
+      <Label layoutX="794.0" layoutY="196.0" text="Positon">
+         <font>
+            <Font name="Calibri" size="16.0" />
+         </font>
+      </Label>
+      <TextField id="usernameField" fx:id="positionTextField" layoutX="794.0" layoutY="222.0" prefHeight="31.0" prefWidth="361.0" style="-fx-background-radius: 0; -fx-border-radius: 0; -fx-border-color: black;" />
+      <Label layoutX="795.0" layoutY="271.0" text="Salary">
+         <font>
+            <Font name="Calibri" size="16.0" />
+         </font>
+      </Label>
+      <TextField id="usernameField" fx:id="salaryTextField" layoutX="794.0" layoutY="297.0" prefHeight="31.0" prefWidth="361.0" style="-fx-background-radius: 0; -fx-border-radius: 0; -fx-border-color: black;" />
+        <Button fx:id="registerButton" layoutX="604.0" layoutY="611.0" onAction="#onRegisterPress" prefHeight="32.0" prefWidth="361.0" style="-fx-font-family: 'Calibri'; -fx-font-size: 16; -fx-background-color: black; -fx-border-color: black; -fx-border-width: 2px;" text="Register Employee" textFill="WHITE" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="2.0" layoutX="296.0" layoutY="105.0" stroke="BLACK" strokeType="INSIDE" width="296.0" />
+      <ImageView fitHeight="69.0" fitWidth="126.0" layoutX="1007.0" layoutY="483.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../unlogged/login/logo.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="795.0" layoutY="435.0" text="Recruiter Signature">
+         <font>
+            <Font name="Calibri" size="16.0" />
+         </font>
+      </Label>
+      <TextField id="usernameField" fx:id="signatureTextField" layoutX="794.0" layoutY="468.0" prefHeight="69.0" prefWidth="200.0" style="-fx-background-radius: 0; -fx-border-radius: 0; -fx-border-color: black;">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </TextField>
+      <Label fx:id="userPositionLabel1" layoutX="316.0" layoutY="125.0" style="-fx-font-family: 'Calibri';" text="- All fields are required to be filled">
+         <font>
+            <Font name="System Italic" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="userPositionLabel11" layoutX="316.0" layoutY="145.0" style="-fx-font-family: 'Calibri';" text="- Username must be unique and password should contain at least 8 chars">
+         <font>
+            <Font name="System Italic" size="12.0" />
+         </font>
+      </Label>
+
+    </children>
+</AnchorPane>

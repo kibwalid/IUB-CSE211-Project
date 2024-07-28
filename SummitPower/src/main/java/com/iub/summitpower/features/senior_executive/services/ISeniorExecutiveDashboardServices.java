@@ -4,12 +4,11 @@ import com.iub.summitpower.core.entities.fucntional.Project;
 
 import java.util.List;
 
-public interface ISeniorExecutiveServices {
+public interface ISeniorExecutiveDashboardServices {
     int numberOfCustomers();
     int numberOfEmployees();
-    double totalCost();
-    double totalRevenue();
-
+    double totalCostByMonth();
+    double totalRevenueByMonth();
     List<Project> getActiveProjects();
 
 }

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.iub.summitpower.features.project_manager.CreateProjectViewController">
+
+    <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="AQUA" height="81.0" layoutX="296.0" layoutY="104.0" stroke="WHITE" strokeType="INSIDE" width="984.0" />
+
+
+        <fx:include source="side-nav-view.fxml" />
+
+        <Label layoutX="316.0" layoutY="36.0" prefHeight="44.0" prefWidth="355.0" style="-fx-font-family: 'Calibri';" text="Create a New Project">
+            <font>
+                <Font size="38.0" />
+            </font></Label>
+
+
+        <Label layoutX="327.0" layoutY="263.0" text="Description">
+            <font>
+                <Font name="Calibri" size="16.0" />
+            </font></Label>
+        <Label layoutX="806.0" layoutY="197.0" text="Deadline">
+            <font>
+                <Font name="Calibri" size="16.0" />
+            </font></Label>
+        <ComboBox id="dropdownMenu" fx:id="employeeDropdown" layoutX="806.0" layoutY="287.0" prefHeight="32.0" prefWidth="326.0" style="-fx-border-width: 1px; -fx-background-color: transparent; -fx-border-color: black;" />
+      <Label layoutX="805.0" layoutY="262.0" text="Enginners">
+         <font>
+            <Font name="Calibri" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="327.0" layoutY="197.0" text="Project Name ">
+         <font>
+            <Font name="Calibri" size="16.0" />
+         </font>
+      </Label>
+      <TextField id="usernameField" fx:id="nameTextField" layoutX="327.0" layoutY="223.0" prefHeight="31.0" prefWidth="439.0" style="-fx-background-radius: 0; -fx-border-radius: 0; -fx-border-color: black;" />
+      <Label layoutX="327.0" layoutY="503.0" text="Cost">
+         <font>
+            <Font name="Calibri" size="16.0" />
+         </font>
+      </Label>
+      <TextField id="usernameField" fx:id="costTextField" layoutX="327.0" layoutY="529.0" prefHeight="31.0" prefWidth="439.0" style="-fx-background-radius: 0; -fx-border-radius: 0; -fx-border-color: black;" />
+        <Button fx:id="createProjectButton" layoutX="806.0" layoutY="629.0" onAction="#onCreateProjectClick" prefHeight="32.0" prefWidth="439.0" style="-fx-font-family: 'Calibri'; -fx-font-size: 16; -fx-background-color: black; -fx-border-color: black; -fx-border-width: 2px;" text="Create Project" textFill="WHITE" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="2.0" layoutX="296.0" layoutY="105.0" stroke="BLACK" strokeType="INSIDE" width="296.0" />
+      <ImageView fitHeight="69.0" fitWidth="126.0" layoutX="539.0" layoutY="619.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../unlogged/login/logo.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="327.0" layoutY="571.0" text="Project Manager Signature">
+         <font>
+            <Font name="Calibri" size="16.0" />
+         </font>
+      </Label>
+      <TextField id="usernameField" fx:id="signatureTextField" layoutX="326.0" layoutY="604.0" prefHeight="69.0" prefWidth="200.0" style="-fx-background-radius: 0; -fx-border-radius: 0; -fx-border-color: black;">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </TextField>
+      <Label fx:id="userPositionLabel1" layoutX="327.0" layoutY="116.0" style="-fx-font-family: 'Calibri';" text="- All fields are required to be filled">
+         <font>
+            <Font name="System Italic" size="12.0" />
+         </font>
+      </Label>
+      <TextArea fx:id="descriptionTextArea" layoutX="327.0" layoutY="290.0" prefHeight="202.0" prefWidth="439.0" style="-fx-background-color: white; -fx-border-color: black;" />
+      <DatePicker fx:id="deadlineDatePicker" layoutX="805.0" layoutY="223.0" onAction="#onDeadlineSelect" prefHeight="31.0" prefWidth="439.0" style="-fx-background-color: white; -fx-border-color: black;" />
+
+        <TableView fx:id="employeeTableView" layoutX="806.0" layoutY="331.0" prefHeight="271.0" prefWidth="439.0" style="-fx-background-color: white; -fx-background-opacity: 10%; -fx-border-color: transparent;">
+            <columns>
+                <TableColumn fx:id="nameCol" editable="false" prefWidth="242.0" style="-fx-background-color: #8c9cda; -fx-border-bottom: 1px;" text="Name" />
+                <TableColumn fx:id="positionCol" editable="false" prefWidth="145.0" style="-fx-background-color: #8c9cda; -fx-border-bottom: 1px;" text="Position" />
+                <TableColumn fx:id="phoneNumberCol" editable="false" prefWidth="166.0" style="-fx-background-color: #8c9cda; -fx-border-bottom: 1px;" text="Phone Number" />
+            </columns>
+            <columnResizePolicy>
+                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+            </columnResizePolicy>
+        </TableView>
+      <Button fx:id="addEngineerButton" layoutX="1151.0" layoutY="287.0" onAction="#onAddEngineerClick" prefHeight="31.0" prefWidth="93.0" style="-fx-font-family: 'Calibri'; -fx-font-size: 16; -fx-background-color: black; -fx-border-color: black; -fx-border-width: 2px;" text="Add " textFill="WHITE" />
+      <Label fx:id="userPositionLabel11" layoutX="327.0" layoutY="136.0" style="-fx-font-family: 'Calibri';" text="- Project Managers are requested to add tasks after creating a project from project details screen">
+         <font>
+            <Font name="System Italic" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="userPositionLabel111" layoutX="327.0" layoutY="156.0" style="-fx-font-family: 'Calibri';" text="- All assigned employees will recieve a message upon creating the project">
+         <font>
+            <Font name="System Italic" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="858.0" layoutY="114.0" prefHeight="32.0" prefWidth="145.0" style="-fx-font-family: 'Calibri';" text="Available Budget :">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="81.0" layoutX="826.0" layoutY="103.0" stroke="BLACK" strokeType="INSIDE" width="4.0" />
+      <Label layoutX="858.0" layoutY="140.0" prefHeight="32.0" prefWidth="145.0" style="-fx-font-family: 'Calibri';" text="Ongoing Projects :">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="availableBudgetLabel" layoutX="1003.0" layoutY="114.0" prefHeight="32.0" prefWidth="152.0" style="-fx-font-family: 'Calibri';" text="0">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font>
+      </Label>
+      <Label fx:id="ongoingProjectsLabel" layoutX="1003.0" layoutY="140.0" prefHeight="32.0" prefWidth="152.0" style="-fx-font-family: 'Calibri';" text="0">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font>
+      </Label>
+
+    </children>
+</AnchorPane>

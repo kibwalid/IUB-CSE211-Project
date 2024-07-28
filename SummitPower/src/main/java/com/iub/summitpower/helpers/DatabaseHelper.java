@@ -2,7 +2,6 @@ package com.iub.summitpower.helpers;
 
 import com.iub.summitpower.config.Constants;
 import com.iub.summitpower.core.entities.database.BaseEntity;
-import com.iub.summitpower.core.utills.ModelUtils;
 
 import java.io.*;
 import java.util.HashMap;
@@ -12,9 +11,8 @@ public abstract class DatabaseHelper<K, V extends BaseEntity> {
 
     private String databaseFileName = ".bin";
     private File databaseFile;
-    private Class<V> entity;
 
-    protected DatabaseHelper(String databaseName, Class<V> entity) {
+    protected DatabaseHelper(String databaseName) {
         this.databaseFileName = databaseName + this.databaseFileName;
         this.databaseFile = new File(Constants.DATABASE_DIRECTORY_PATH, this.databaseFileName);
         if (!databaseExists()) {
@@ -24,7 +22,6 @@ public abstract class DatabaseHelper<K, V extends BaseEntity> {
                 System.out.println("Database file " + this.databaseFileName + " was not created due to a file error!");
             }
         }
-        this.entity = entity;
     }
 
     private boolean databaseExists() {
@@ -54,19 +51,19 @@ public abstract class DatabaseHelper<K, V extends BaseEntity> {
     }
 
     protected boolean add(K key, V value) {
-        Map<K, Map<String, Object>> database = readDatabase();
+        Map<K, V> database = readDatabase();
         if (key instanceof Integer) {
             key = (K) generateIntegerKey();
         }
         if (database.containsKey(key)) {
             return false;
         }
-        database.put(key, ModelUtils.toHashMap(value));
+        database.put(key, value);
         return writeDatabase(database);
     }
 
     private Integer generateIntegerKey() {
-        Map<K, Map<String, Object>> database = readDatabase();
+        Map<K, V> database = readDatabase();
         int maxKey = database.keySet().stream()
                 .filter(key -> key instanceof Integer)
                 .mapToInt(key -> (Integer) key)
@@ -76,18 +73,14 @@ public abstract class DatabaseHelper<K, V extends BaseEntity> {
     }
 
     protected V get(K key) {
-        Map<K, Map<String, Object>> database = readDatabase();
-        return ModelUtils.fromHashMap(database.get(key), entity);
+        Map<K, V> database = readDatabase();
+        return database.get(key) == null ? null : database.get(key);
     }
 
     protected Map<K, V> getAll() {
-        Map<K, Map<String, Object>> database = readDatabase();
-        Map<K, V> result = new HashMap<>();
-        for (Map.Entry<K, Map<String, Object>> entry : database.entrySet()) {
-            V value = ModelUtils.fromHashMap(entry.getValue(), entity);
-            result.put(entry.getKey(), value);
-        }
-        return result;
+        Map<K, V> database = readDatabase();
+
+        return database;
     }
 
     protected int count() {
@@ -95,16 +88,16 @@ public abstract class DatabaseHelper<K, V extends BaseEntity> {
     }
 
     protected boolean update(K key, V newValue) {
-        Map<K, Map<String, Object>> database = readDatabase();
+        Map<K,V> database = readDatabase();
         if (!database.containsKey(key)) {
             return false;
         }
-        database.put(key, ModelUtils.toHashMap(newValue));
+        database.put(key, newValue);
         return writeDatabase(database);
     }
 
     protected boolean deleteRecord(K key) {
-        Map<K, Map<String, Object>> database = readDatabase();
+        Map<K,V> database = readDatabase();
         if (!database.containsKey(key)) {
             return false; // Record with the given key does not exist
         }
@@ -112,7 +105,7 @@ public abstract class DatabaseHelper<K, V extends BaseEntity> {
         return writeDatabase(database);
     }
 
-    private boolean writeDatabase(Map<K, Map<String, Object>> database) {
+    private boolean writeDatabase(Map<K, V> database) {
         try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(databaseFile))) {
             oos.writeObject(database);
             return true;
@@ -122,9 +115,9 @@ public abstract class DatabaseHelper<K, V extends BaseEntity> {
         }
     }
 
-    private Map<K, Map<String, Object>> readDatabase() {
+    private Map<K, V> readDatabase() {
         try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(databaseFile))) {
-            return (Map<K, Map<String, Object>>) ois.readObject();
+            return (Map<K, V>) ois.readObject();
         } catch (IOException | ClassNotFoundException e) {
             System.out.println(e.getMessage());
         }

@@ -52,11 +52,41 @@ public class LoginController extends NavigationHelper {
         try {
             boolean isLogin = loginServices.login(usernameField.getText(), passwordField.getText(), selectedUserType);
             if(isLogin) {
-                navigateToPage(loginButton, Screens.seniorExecutiveDashboard);
+                UserType userType = selectedUserType;
+                Screens.refreshScreens();
+                navigateAfterLogin(userType);
             }
 
         } catch (Exception e) {
             ViewControlUtils.showAlert(e.getMessage());
+        }
+    }
+
+    private void navigateAfterLogin(UserType userType) {
+        switch (userType) {
+            case SENIOR_EXECUTIVE -> {
+                navigateToPage(loginButton, Screens.seniorExecutiveDashboard);
+            }
+            case HR_EXECUTIVE -> {
+                navigateToPage(loginButton, Screens.hrExecutiveDashboard);
+            }
+            case SALES_EXECUTIVE -> {
+            }
+            case BUSINESS_ANALYST -> {
+            }
+            case PROJECT_MANAGER -> {
+            }
+            case ENGINEER -> {
+            }
+            case QUALITY_ASSURANCE_TESTER -> {
+            }
+            case MAINTENANCE_ENGINEER -> {
+            }
+            case CUSTOMER_AGENT -> {
+            }
+            case CUSTOMER_SUPPORT_AGENT -> {
+            }
+            default -> ViewControlUtils.showAlert("Something went wrong with user types. Contact Khalid!");
         }
     }
 }

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="720.0" prefWidth="295.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.iub.summitpower.features.senior_executive.SideNavViewController">
+
+    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#6f77d6" height="720.0" stroke="#1e7faa" strokeType="INSIDE" width="296.0" />
+    <ImageView fitHeight="70.0" fitWidth="156.0" layoutX="23.0" layoutY="516.0" pickOnBounds="true"
+               preserveRatio="true">
+        <Image url="@../unlogged/login/logo.png"/>
+    </ImageView>
+
+    <Button fx:id="backButton" layoutX="23.0" layoutY="594.0" prefHeight="31.0" prefWidth="223.0" style="-fx-font-family: 'Calibri'; -fx-font-size: 14; -fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 2px;" text="← Logout" textFill="WHITE">
+        <font>
+            <Font name="System Bold" size="12.0" />
+        </font></Button>
+    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="2.0" layoutY="105.0" stroke="WHITE" strokeType="INSIDE" width="296.0" />
+    <Label fx:id="userNameLabel" layoutX="23.0" layoutY="36.0" style="-fx-font-family: 'Calibri';" text="Khalid Ibnul Walid" textFill="WHITE">
+        <font>
+            <Font size="28.0" />
+        </font>
+    </Label>
+    <Label fx:id="userPositionLabel" layoutX="23.0" layoutY="69.0" style="-fx-font-family: 'Calibri';" text="Senior Executive" textFill="WHITE">
+        <font>
+            <Font size="18.0" />
+        </font>
+    </Label>
+    <Label fx:id="dashboardLabel" layoutX="33.0" layoutY="162.0" onMouseClicked="#onDashboardNavPressed" style="-fx-font-family: 'Calibri Bold';" text="Dashboard" textFill="WHITE">
+        <font>
+            <Font size="18.0" />
+        </font>
+    </Label>
+    <Label fx:id="addEmployeLabel" layoutX="33.0" layoutY="203.0" onMouseClicked="#onAddEmployeeNavPressed" style="-fx-font-family: 'Calibri';" text="Add Employee" textFill="WHITE">
+        <font>
+            <Font size="18.0" />
+        </font>
+    </Label>
+    <Label fx:id="employeeListLabel" layoutX="33.0" layoutY="243.0" onMouseClicked="#onEmployeeListNavPressed" style="-fx-font-family: 'Calibri';" text="Employee List" textFill="WHITE">
+        <font>
+            <Font size="18.0" />
+        </font>
+    </Label>
+    <Label fx:id="customerListLabel" layoutX="33.0" layoutY="284.0" onMouseClicked="#onCustomerListNavPressed" style="-fx-font-family: 'Calibri';" text="Customer List" textFill="WHITE">
+        <font>
+            <Font size="18.0" />
+        </font>
+    </Label>
+    <Label fx:id="projectLabel" layoutX="34.0" layoutY="321.0" onMouseClicked="#onProjectNavPressed" style="-fx-font-family: 'Calibri';" text="Projects" textFill="WHITE">
+        <font>
+            <Font size="18.0" />
+        </font>
+    </Label>
+    <Label fx:id="issuesLabel" layoutX="34.0" layoutY="362.0" onMouseClicked="#onIssuesNavPressed" style="-fx-font-family: 'Calibri';" text="Issues" textFill="WHITE">
+        <font>
+            <Font size="18.0" />
+        </font>
+    </Label>
+    <Label fx:id="financialReportLabel" layoutX="34.0" layoutY="402.0" onMouseClicked="#onFinanceNavPressed" style="-fx-font-family: 'Calibri';" text="Financial Report" textFill="WHITE">
+        <font>
+            <Font size="18.0" />
+        </font>
+    </Label>
+
+    <Rectangle fill="WHITE" height="2.0" layoutY="669.0" smooth="false" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="200.0" />
+    <Label fx:id="label" layoutX="10.0" layoutY="684.0" text="Developed by Team Error 200" textFill="WHITE"> </Label>
+
+
+</AnchorPane>
